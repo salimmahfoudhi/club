@@ -7,6 +7,7 @@ use App\Orchid\Layouts\Clublayout\ClubListLayout;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
 use Orchid\Support\Color;
+use Orchid\Support\Facades\Alert;
 
 class display_club extends Screen
 {
@@ -62,5 +63,14 @@ class display_club extends Screen
 
             ClubListLayout::class
         ];
+    }
+
+    public function remove(Club $club)
+    {
+        $club->delete();
+
+        Alert::info('You have successfully deleted the Club.');
+
+        return redirect()->route('platform.display_club');
     }
 }

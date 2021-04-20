@@ -33,6 +33,12 @@ class UserListLayout extends Table
                 ->render(function (User $user) {
                     return new Persona($user->presenter());
                 }),
+           /*  ->render(function (User $user) {
+
+                 return "<img src='{$user->personal_image}'
+                              alt='sample'
+                              class='mw-100 d-block img-fluid'>";
+             }),*/
 
             TD::make('last_name', 'Last Name'),
 
@@ -93,4 +99,7 @@ class UserListLayout extends Table
                 }),
         ];
     }
+
+
+
 }

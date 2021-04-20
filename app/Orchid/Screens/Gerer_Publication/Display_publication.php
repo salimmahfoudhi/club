@@ -7,6 +7,7 @@ use App\Orchid\Layouts\Publicationlayout\PublicationListLayout;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
 use Orchid\Support\Color;
+use Orchid\Support\Facades\Alert;
 
 class Display_publication extends Screen
 {
@@ -66,4 +67,17 @@ class Display_publication extends Screen
 
         ];
     }
+
+
+    public function remove(Publication $publication)
+    {
+        $publication->delete();
+
+        Alert::info('You have successfully deleted the Pub.');
+
+        return redirect()->route('platform.Display_publication');
+    }
+
+
+
 }

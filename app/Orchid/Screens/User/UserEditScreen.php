@@ -111,8 +111,8 @@ class UserEditScreen extends Screen
 
 
             Layout::block(UserEditLayout::class)
-                ->title(__('Profile Information'))
-                ->description(__('Update your account\'s profile information and email address.'))
+                // ->title(__('Profile Information'))
+                // ->description(__('Update your account\'s profile information and email address.'))
                 ->commands(
                     Button::make(__('Save'))
                         ->type(Color::DEFAULT())
@@ -126,8 +126,8 @@ class UserEditScreen extends Screen
 
 
             Layout::block(UserPasswordLayout::class)
-                ->title(__(''))
-                ->description(__(''))
+                //  ->title(__(''))
+                //  ->description(__(''))
                 ->commands(
                     Button::make(__('Save'))
                         ->type(Color::DEFAULT())
@@ -141,8 +141,8 @@ class UserEditScreen extends Screen
 
 
             Layout::block(UserRoleLayout::class)
-               // ->title(__('Roles'))
-              //  ->description(__('A Role defines a set of tasks a user assigned the role is allowed to perform.'))
+                // ->title(__('Roles'))
+                //  ->description(__('A Role defines a set of tasks a user assigned the role is allowed to perform.'))
                 ->commands(
                     Button::make(__('Save'))
                         ->type(Color::DEFAULT())
@@ -153,7 +153,7 @@ class UserEditScreen extends Screen
 
             Layout::block(RolePermissionLayout::class)
                 //->title(__('Permissions'))
-               // ->description(__('Allow the user to perform some actions that are not provided for by his roles'))
+                // ->description(__('Allow the user to perform some actions that are not provided for by his roles'))
                 ->commands(
                     Button::make(__('Save'))
                         ->type(Color::DEFAULT())

@@ -54,6 +54,8 @@ class ExampleLayoutsScreen extends Screen
     {
         return [
 
+
+
             Layout::block(Layout::view('platform::dummy.block'))
                 ->title('Block header')
                 ->description('Excellent description that editing or views in block'),

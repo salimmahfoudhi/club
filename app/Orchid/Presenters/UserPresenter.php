@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Orchid\Presenters;
 
+use App\Models\MyModels\Etudiant;
+use App\Models\User;
 use Laravel\Scout\Builder;
 use Orchid\Screen\Contracts\Personable;
 use Orchid\Screen\Contracts\Searchable;
@@ -50,11 +52,16 @@ class UserPresenter extends Presenter implements Searchable, Personable
     /**
      * @return string
      */
+
+
     public function image(): ?string
     {
         $hash = md5(strtolower(trim($this->entity->email)));
 
-        return "https://www.gravatar.com/avatar/$hash?d=mp";
+
+
+        return $this->entity->personal_image;
+
     }
 
     /**

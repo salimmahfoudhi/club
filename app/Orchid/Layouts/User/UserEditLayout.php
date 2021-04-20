@@ -87,8 +87,8 @@ class UserEditLayout extends Rows
                 ->placeholder('Date of Birth'),
 
             Input::make('user.phone_number')
-                ->type('text')
-                ->max(255)
+                ->type('tel')
+                ->max(12)
                 ->title('Phone Number')
                 ->placeholder('Phone Number'),
 

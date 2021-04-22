@@ -3,6 +3,8 @@
 namespace App\Orchid\Screens\Gerer_Publication;
 
 use App\Models\MyModels\Publication;
+use App\Orchid\Layouts\Clublayout\ClubFiltersLayout;
+use App\Orchid\Layouts\Publicationlayout\PubFiltersLayout;
 use App\Orchid\Layouts\Publicationlayout\PublicationListLayout;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
@@ -33,7 +35,13 @@ class Display_publication extends Screen
     public function query(): array
     {
         return [
-            'publications' => Publication::paginate()
+
+
+            'publications' => Publication:://with('roles')
+         filters()
+        ->filtersApplySelection(PubFiltersLayout::class)
+        ->defaultSort('id', 'desc')
+        ->paginate(),
 
         ];
     }
@@ -62,6 +70,7 @@ class Display_publication extends Screen
     public function layout(): array
     {
         return [
+            PubFiltersLayout::class,
 
             PublicationListLayout::class
 

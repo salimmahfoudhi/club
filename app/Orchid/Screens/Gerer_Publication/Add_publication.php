@@ -2,11 +2,14 @@
 
 namespace App\Orchid\Screens\Gerer_Publication;
 
+use App\Models\MyModels\Club;
 use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Fields\Relation;
 use Orchid\Screen\Fields\Select;
 use Orchid\Screen\Screen;
 use App\Models\MyModels\Publication;
 use App\Models\MyModels\Etudiant;
+use App\Models\User;
 
 use Illuminate\Http\Request;
 
@@ -76,11 +79,15 @@ class Add_publication extends Screen
         return [
             Layout::rows([
 
-                Input::make('Publication.id_publisher')
-                    ->type('Integer')
+
+
+
+                Relation::make('Publication.cin_publisher')
+                    ->title('CIN Publisher')
                     ->required()
-                    ->title('Id Publisher')
-                    ->placeholder('Id Publisher'),
+                    ->type('Integer')
+                    ->placeholder('CIN Publisher')
+                    ->fromModel(User::class, 'national_identity_card'),
 
 
 

@@ -9,9 +9,12 @@ use Orchid\Screen\AsSource;
 use Orchid\Attachment\Attachable;
 use Orchid\Attachment\Models\Attachment;
 
+use Orchid\Filters\Filterable;
+
+
 class Publication extends Model
 {
-    use AsSource, Attachable;
+    use AsSource, Attachable,Filterable;
 
     public $table='publications';
 
@@ -22,7 +25,30 @@ class Publication extends Model
         'description',
         'created_at',
         'updated_at',
-        'id_publisher',
+        'cin_publisher',
+    ];
+
+    protected $allowedFilters = [
+        'id',
+        'type',
+        'banner',
+        'description',
+        'created_at',
+        'updated_at',
+        'cin_publisher',
+    ];
+
+    /**
+     * @var array
+     */
+    protected $allowedSorts = [
+        'id',
+        'type',
+        'banner',
+        'description',
+        'created_at',
+        'updated_at',
+        'cin_publisher',
     ];
 
   //  public $timestamps=false;

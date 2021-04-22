@@ -38,7 +38,7 @@ class UserEditLayout extends Rows
               Input::make('user.national_identity_card')
                 ->type('bigInteger')
                 ->required()
-                ->max(255)
+                ->max(9)
                 ->title('National Identity Card')
                 ->placeholder('National Identity Card'),
 
@@ -78,7 +78,7 @@ class UserEditLayout extends Rows
                 ->targetRelativeUrl()
                 ->title('Large web personal photo image, generally in the front and center')
                 ->width(500)
-                ->height(600),
+                ->height(500),
 
                 Input::make('user.Date_of_Birth')
                 ->type('date')

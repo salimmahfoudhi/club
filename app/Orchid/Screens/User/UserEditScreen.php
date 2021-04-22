@@ -109,10 +109,9 @@ class UserEditScreen extends Screen
 
 
 
-
             Layout::block(UserEditLayout::class)
-                // ->title(__('Profile Information'))
-                // ->description(__('Update your account\'s profile information and email address.'))
+                 ->title(__('Profile Information'))
+                 ->description(__('Update your account\'s profile information and email address.'))
                 ->commands(
                     Button::make(__('Save'))
                         ->type(Color::DEFAULT())
@@ -151,7 +150,7 @@ class UserEditScreen extends Screen
                         ->method('save')
                 ),
 
-            Layout::block(RolePermissionLayout::class)
+         /*   Layout::block(RolePermissionLayout::class)
                 //->title(__('Permissions'))
                 // ->description(__('Allow the user to perform some actions that are not provided for by his roles'))
                 ->commands(
@@ -160,7 +159,7 @@ class UserEditScreen extends Screen
                         ->icon('check')
                         ->canSee($this->user->exists)
                         ->method('save')
-                ),
+                ),*/
 
 
 

@@ -33,6 +33,7 @@ class PublicationListLayout extends Table
         return [
 
              TD::make('id', 'Id')
+                 ->filter(TD::FILTER_TEXT)
                  ->render(function (Publication $publication) {
                      return Link::make($publication->id)
                          ->route('platform.Update_And_Remove_Pub', $publication);}),

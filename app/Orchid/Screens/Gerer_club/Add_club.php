@@ -2,11 +2,12 @@
 
 namespace App\Orchid\Screens\Gerer_club;
 
-use App\Models\Users;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Fields\Cropper;
 use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Fields\Relation;
 use Orchid\Screen\Fields\Select;
 use Orchid\Screen\Fields\TextArea;
 use Orchid\Screen\Screen;
@@ -90,11 +91,12 @@ class Add_club extends Screen
                     ->title('Description')
                     ->placeholder('Description'),
 
-                Input::make('Club.id_leader')
-                    ->type('Integer')
+
+                Relation::make('Club.cin_leader')
+                    ->title('CIN leader')
                     ->required()
-                    ->title('Id leader')
-                    ->placeholder('Id leader'),
+                    ->placeholder('CIN leader')
+                    ->fromModel(User::class, 'national_identity_card'),
 
 
 

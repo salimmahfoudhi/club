@@ -37,14 +37,16 @@ class ClubListLayout extends Table
                       return Link::make($club->title)
                           ->route('platform.display_club', $club);  //zeyeddd??
                   }),*/
-            TD::make('id', 'Id')
+
+            TD::make('name', 'name')
                 ->filter(TD::FILTER_TEXT)
                 ->render(function (Club $club) {
-                    return Link::make($club->id)
+                    return Link::make($club->name)
                         ->route('platform.Update_and_Remove_Club', $club);}),
 
 
-            TD::make('name', 'name'),
+
+
             TD::make('id_leader', 'id_leader'),
             TD::make('description', 'description'),
 

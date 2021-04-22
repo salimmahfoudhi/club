@@ -94,7 +94,7 @@ class PlatformProvider extends OrchidServiceProvider
 
 
 
-//ccaloioioi
+
         ];
     }
 

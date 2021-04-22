@@ -3,6 +3,7 @@
 namespace App\Orchid\Screens\Gerer_club;
 
 use App\Models\MyModels\Club;
+use App\Orchid\Layouts\Clublayout\ClubFiltersLayout;
 use App\Orchid\Layouts\Clublayout\ClubListLayout;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
@@ -33,7 +34,16 @@ class display_club extends Screen
     public function query(): array
     {
         return [
-            'clubs' => Club::paginate()
+            'clubs' => Club:://with('roles')
+                filters()
+                ->filtersApplySelection(ClubFiltersLayout::class)
+                ->defaultSort('id', 'desc')
+                ->paginate(),
+
+
+          //  'clubs' => Club::paginate()
+
+
         ];
     }
 
@@ -60,7 +70,7 @@ class display_club extends Screen
     public function layout(): array
     {
         return [
-
+            ClubFiltersLayout::class,
             ClubListLayout::class
         ];
     }

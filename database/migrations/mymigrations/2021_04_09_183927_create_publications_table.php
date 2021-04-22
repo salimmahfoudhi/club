@@ -18,7 +18,7 @@ class CreatePublicationsTable extends Migration
             $table->string('type');
             $table->string('banner')->nullable();
             $table->string('description')->unique();
-            $table->integer('id_publisher');
+            $table->integer('cin_publisher');
             $table->timestamps();
         });
     }

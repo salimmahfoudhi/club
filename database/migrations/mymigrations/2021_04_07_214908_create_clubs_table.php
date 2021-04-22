@@ -17,7 +17,7 @@ class CreateClubsTable extends Migration
             $table->id()->unique();
             $table->string('name');
             $table->string('description');
-            $table->integer('id_leader')->unique();
+            $table->integer('cin_leader')->unique();
             $table->string('logo')->nullable();
             $table->string('banner')->nullable();
 

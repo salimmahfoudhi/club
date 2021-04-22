@@ -130,7 +130,6 @@ Route::screen('RemoveUpdatePub/{Display_publication?}',\App\Orchid\Screens\Gerer
 
 
 
-
 //Route::screen('update_etu/{displayuser?}',\App\Orchid\Screens\update_etu::class)
   //       ->name('platform.update_etu');
 

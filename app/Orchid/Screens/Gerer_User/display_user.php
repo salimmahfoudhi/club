@@ -1,16 +1,12 @@
 <?php
 namespace App\Orchid\Screens\Gerer_User;
 
-use App\Http\Controllers\Controller;
+
 use App\Models\MyModels\Etudiant;
 use App\Orchid\Layouts\Userlayout\UserListLayout;
 use Orchid\Screen\Screen;
 
 
-
-
-
-use App\Orchid\Layouts\Userlayout;
 
 use Orchid\Screen\Actions\Link;
 

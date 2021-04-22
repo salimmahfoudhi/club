@@ -94,62 +94,7 @@ class PlatformProvider extends OrchidServiceProvider
 
 
 
-
-
-
-
-
-
-
-
-
-            ItemMenu::label('Example ')
-                ->icon('monitor')
-                ->route('platform.example')
-                ->title('Navigation')
-                ->badge(function () {
-                    return 6;
-                }),
-
-
-
-            ItemMenu::label('Basic Elements')
-                ->title('Form controls')
-                ->icon('note')
-                ->route('platform.example.fields'),
-
-            ItemMenu::label('Advanced Elements')
-                ->icon('briefcase')
-                ->route('platform.example.advanced'),
-
-            ItemMenu::label('Text Editors')
-                ->icon('list')
-                ->route('platform.example.editors'),
-
-            ItemMenu::label('Overview layouts')
-                ->title('Layouts')
-                ->icon('layers')
-                ->route('platform.example.layouts'),
-
-            ItemMenu::label('Chart tools')
-                ->icon('bar-chart')
-                ->route('platform.example.charts'),
-
-            ItemMenu::label('Cards')
-                ->icon('grid')
-                ->route('platform.example.cards'),
-
-            ItemMenu::label('Documentation')
-                ->title('Docs')
-                ->icon('docs')
-                ->url('https://orchid.software/en/docs'),
-
-            ItemMenu::label('Changelog')
-                ->icon('shuffle')
-                ->url('https://github.com/orchidsoftware/platform/blob/master/CHANGELOG.md')
-                ->badge(function () {
-                    return Dashboard::version();
-                }, Color::DARK()),
+//cc
         ];
     }
 

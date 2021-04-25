@@ -82,11 +82,15 @@ class Display_publication extends Screen
     {
         $publication->delete();
 
-        Alert::info('You have successfully deleted the Pub.');
+        Alert::info('Vous avez supprimé le Publication avec succès.');
 
         return redirect()->route('platform.Display_publication');
     }
 
+
+    public $permission = [
+        'platform.Display_publication'
+    ];
 
 
 }

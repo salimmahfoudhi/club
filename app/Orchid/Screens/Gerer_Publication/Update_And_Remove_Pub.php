@@ -95,11 +95,11 @@ class Update_And_Remove_Pub extends Screen
         return [
             Layout::rows([
 
-                Input::make('Publication.id_publisher')
+                Input::make('Publication.cin_publisher')
                     ->type('Integer')
                     ->required()
-                    ->title('Id Publisher')
-                    ->placeholder('Id Publisher'),
+                    ->title('Cin Publisher')
+                    ->placeholder('Cin Publisher'),
 
 
 
@@ -183,5 +183,9 @@ class Update_And_Remove_Pub extends Screen
 
         return redirect()->route('platform.Display_publication');
     }
+
+    public $permission = [
+        'platform.Display_publication'
+    ];
 }
 

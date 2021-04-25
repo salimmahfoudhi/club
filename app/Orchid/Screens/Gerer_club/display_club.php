@@ -17,14 +17,14 @@ class display_club extends Screen
      *
      * @var string
      */
-    public $name = 'display_club';
+    public $name = 'Afficher clubs';
 
     /**
      * Display header description.
      *
      * @var string|null
      */
-    public $description = 'display_club';
+    public $description = 'Tous les clubs enregistrés';
 
     /**
      * Query data.
@@ -55,7 +55,7 @@ class display_club extends Screen
     public function commandBar(): array
     {
         return [
-            Link::make('add Club')
+            Link::make('Ajouter')
                 ->icon('plus')
                 ->route('platform.Add_club')
                 ->type(Color::SECONDARY()),
@@ -79,8 +79,14 @@ class display_club extends Screen
     {
         $club->delete();
 
-        Alert::info('You have successfully deleted the Club.');
+        Alert::info('Vous avez supprimé le club avec succès.');
 
         return redirect()->route('platform.display_club');
     }
+
+
+
+    public $permission = [
+        'platform.display_club'
+    ];
 }

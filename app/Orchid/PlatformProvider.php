@@ -33,9 +33,10 @@ class PlatformProvider extends OrchidServiceProvider
                 ->slug('Users')
                 ->icon('people')
                 ->title('Gérer')
+                ->permission('platform.systems.users')
                 ->withChildren(),
 
-            ItemMenu::label('Display User')
+            ItemMenu::label('Afficher utilisateurs')
                 ->route('platform.systems.users')
                 ->place('Users')
                 ->icon('people'),
@@ -43,7 +44,7 @@ class PlatformProvider extends OrchidServiceProvider
 
 
 
-            ItemMenu::label('Add Users')
+            ItemMenu::label('Ajouter Users')
                 ->route('platform.systems.users.create')
                 ->icon('user-follow')
                 ->place('Users'),
@@ -53,20 +54,40 @@ class PlatformProvider extends OrchidServiceProvider
 
 //clubs
 
+          /*  ItemMenu::label('Clubs')
+                ->slug('Clubs')
+                ->icon('orchid-old')
+              //  ->permission('clubs')
+                ->withChildren(),*/
+
+
+
+
+
             ItemMenu::label('Clubs')
                 ->slug('Clubs')
                 ->icon('orchid-old')
+                ->permission('platform.Add_club')
+
                 ->withChildren(),
 
-            ItemMenu::label('Display Clubs')
-                ->route('platform.display_club')
-                ->place('Clubs'),
-               // ->icon('people'),
 
-            ItemMenu::label('Add club')
+            ItemMenu::label(__('Afficher Clubs'))
+                ->place('Clubs')
+
+                ->route('platform.display_club')
+                ->permission('platform.display_club')
+                ->sort(1000),
+
+
+            ItemMenu::label(__('Ajouter club'))
+                ->place('Clubs')
+
                 ->route('platform.Add_club')
-             //   ->icon('user-follow')
-                ->place('Clubs'),
+                ->permission('platform.Add_club')
+                ->sort(1000),
+             //   ->title(__('A Role defines a set of tasks a user assigned the role is allowed to perform.')),
+
 
 
 
@@ -74,18 +95,25 @@ class PlatformProvider extends OrchidServiceProvider
 
             ItemMenu::label('Publications')
                 ->slug('Publications')
+                ->permission('platform.Add_publication')
                 ->icon('star')
                 ->withChildren(),
 
-            ItemMenu::label('Display Publication')
+            ItemMenu::label('Afficher Publications')
                 ->route('platform.Display_publication')
-                ->place('Publications'),
+                ->place('Publications')
+                ->permission('platform.Display_publication')
+                ->sort(1000),
             //    ->icon('people'),
 
-            ItemMenu::label('Add Publication')
+
+
+            ItemMenu::label('Ajouter Publication')
                 ->route('platform.Add_publication')
               //  ->icon('user-follow')
-                ->place('Publications'),
+                ->place('Publications')
+                ->permission('platform.Add_publication')
+                ->sort(1000),
 
 
 
@@ -138,7 +166,12 @@ class PlatformProvider extends OrchidServiceProvider
                 ->permission('platform.systems.roles')
                 ->sort(1000)
                 ->title(__('A Role defines a set of tasks a user assigned the role is allowed to perform.')),
-        ];
+
+
+
+
+
+            ];
     }
 
     /**
@@ -149,8 +182,25 @@ class PlatformProvider extends OrchidServiceProvider
         return [
             ItemPermission::group(__('Systems'))
                 ->addPermission('platform.systems.roles', __('Roles'))
-                ->addPermission('platform.systems.users', __('Users')),
+                ->addPermission('platform.systems.users', __('Users'))
+           ,
+            ItemPermission::group(__('clubs'))
+                ->addPermission('platform.Add_club', 'Ajouter Club')
+                ->addPermission('platform.display_club', 'Afficher Clubs'),
+
+            ItemPermission::group(__('Users'))
+                ->addPermission('platform.Add_publication', 'Ajouter Publication')
+                ->addPermission('platform.Display_publication', 'Afficher Publications')
+               ,
+
+
+
         ];
+
+
+
+
+
     }
 
     /**

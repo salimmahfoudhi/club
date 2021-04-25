@@ -13,11 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
+Route::get('/', function () {
+    return view('index');
+});
 
-
+Route::get('/etudiants', 'App\Http\Controllers\FrontController@ListeEtudiants');
+Route::get('/clubs', 'App\Http\Controllers\FrontController@ListeClubs');
+Route::get('/evenments', 'App\Http\Controllers\FrontController@ListeEvenements');
+Route::get('/formations', 'App\Http\Controllers\FrontController@ListeFormations');
 
 
 

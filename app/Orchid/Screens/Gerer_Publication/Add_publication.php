@@ -29,14 +29,14 @@ class Add_publication extends Screen
      *
      * @var string
      */
-    public $name = 'Add publication';
+    public $name = 'Ajouter Publication';
 
     /**
      * Display header description.
      *
      * @var string|null
      */
-    public $description = 'Add publication';
+    public $description = 'Détails tels que Type, Description...';
 
     /**
      * Query data.
@@ -51,7 +51,7 @@ class Add_publication extends Screen
         $this->exists = $publication->exists;
 
         if($this->exists){
-            $this->name = 'Addclub';
+            $this->name = 'Ajouter Publication';
         }
 
         return [
@@ -83,7 +83,7 @@ class Add_publication extends Screen
 
 
                 Relation::make('Publication.cin_publisher')
-                    ->title('CIN Publisher')
+                    ->title('CIN //automatic ?')
                     ->required()
                     ->type('Integer')
                     ->placeholder('CIN Publisher')
@@ -98,12 +98,12 @@ class Add_publication extends Screen
                         'Formation'   => 'Formation',
 
                     ])
-                    ->title('Select type'),
+                    ->title('Sélectionner le type'),
 
 
                 Cropper::make('Publication.banner')
                     ->targetRelativeUrl()
-                    ->title('Large web banner image')
+                    ->title('Grande image de banniére Publication')
                     ->required()
                     ->width(1500)
                     ->height(600),
@@ -117,7 +117,7 @@ class Add_publication extends Screen
                     ->placeholder('Description'),
 
 
-                Button::make('Add Publication')
+                Button::make('Ajouter')
                     ->icon('check')
                     ->method('addnewPublication')
                     ->canSee(!$this->exists)
@@ -148,8 +148,13 @@ class Add_publication extends Screen
     {
         $publication->fill($request->get('Publication'))->save(); //Publication esm model
 
-        Alert::info('You have successfully Add publication.');
+        Alert::info('Vous avez réussi à ajouter un publication.');
 
         return redirect()->route('platform.Add_publication');
     }
+
+
+    public $permission = [
+        'platform.Add_publication'
+    ];
 }

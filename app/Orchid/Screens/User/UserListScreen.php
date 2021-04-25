@@ -22,14 +22,14 @@ class UserListScreen extends Screen
      *
      * @var string
      */
-    public $name = 'User';
+    public $name = 'utilisateurs';
 
     /**
      * Display header description.
      *
      * @var string
      */
-    public $description = 'All registered users';
+    public $description = 'Tous les utilisateurs enregistrés';
 
     /**
      * @var string
@@ -60,7 +60,7 @@ class UserListScreen extends Screen
     public function commandBar(): array
     {
         return [
-            Link::make(__('Add'))
+            Link::make(__('Ajouter'))
                 ->icon('plus')
                 ->route('platform.systems.users.create'),
 
@@ -121,4 +121,6 @@ class UserListScreen extends Screen
 
         Toast::info(__('User was removed'));
     }
+
+
 }

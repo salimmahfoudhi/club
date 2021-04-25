@@ -27,14 +27,16 @@ class UserEditScreen extends Screen
      *
      * @var string
      */
-    public $name = 'Edit User';
+    public $name = 'Modifier l\'utilisateur';
 
     /**
      * Display header description.
      *
      * @var string
      */
-    public $description = 'Details such as name, email and password';
+    public $description = 'Détails tels que nom, e-mail et mot de passe
+
+';
 
     /**
      * @var string
@@ -58,7 +60,7 @@ class UserEditScreen extends Screen
         $this->user = $user;
 
         if (! $user->exists) {
-            $this->name = 'Create User';
+            $this->name = 'Créer un utilisateur';
         }
 
         $user->load(['roles']);
@@ -77,22 +79,22 @@ class UserEditScreen extends Screen
     public function commandBar(): array
     {
         return [
-            Button::make(__('Impersonate user'))
+          /*  Button::make(__('Impersonate user'))
                 ->icon('login')
                 ->confirm('You can revert to your original state by logging out.')
                 ->method('loginAs')
                 ->canSee($this->user->exists && \request()->user()->id !== $this->user->id)
-                ->type(Color::SECONDARY()),
+                ->type(Color::SECONDARY()),*/
 
-            Button::make(__('Remove'))
+            Button::make(__('Supprimer'))
                 ->icon('trash')
-                ->confirm(__('Once the account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.'))
+                ->confirm(__('Une fois le compte supprimé, toutes ses ressources et données seront définitivement supprimées.'))
                 ->method('remove')
                 ->canSee($this->user->exists)
                 ->type(Color::SECONDARY()),
 
 
-            Button::make(__('Save'))
+            Button::make(__('Enregistrer'))
                 ->icon('check')
                 ->method('save')
                 ->type(Color::SECONDARY()),
@@ -111,7 +113,7 @@ class UserEditScreen extends Screen
 
             Layout::block(UserEditLayout::class)
                  ->title(__('Profile Information'))
-                 ->description(__('Update your account\'s profile information and email address.'))
+                 ->description(__('Mettez à jour les informations de profil et l\'adresse e-mail de votre compte.'))
                 ->commands(
                     Button::make(__('Save'))
                         ->type(Color::DEFAULT())
@@ -128,7 +130,7 @@ class UserEditScreen extends Screen
                 //  ->title(__(''))
                 //  ->description(__(''))
                 ->commands(
-                    Button::make(__('Save'))
+                    Button::make(__('Enregistrer'))
                         ->type(Color::DEFAULT())
                         ->icon('check')
                         ->canSee($this->user->exists)
@@ -143,7 +145,7 @@ class UserEditScreen extends Screen
                 // ->title(__('Roles'))
                 //  ->description(__('A Role defines a set of tasks a user assigned the role is allowed to perform.'))
                 ->commands(
-                    Button::make(__('Save'))
+                    Button::make(__('Enregistrer'))
                         ->type(Color::DEFAULT())
                         ->icon('check')
                         ->canSee($this->user->exists)
@@ -230,7 +232,7 @@ class UserEditScreen extends Screen
     {
         $user->delete();
 
-        Toast::info(__('User was removed'));
+        Toast::info(__('L\'utilisateur a été supprimé'));
 
         return redirect()->route('platform.systems.users');
     }
@@ -240,12 +242,15 @@ class UserEditScreen extends Screen
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function loginAs(User $user)
+ /*   public function loginAs(User $user)
     {
         UserSwitch::loginAs($user);
 
         Toast::info(__('You are now impersonating this user'));
 
         return redirect()->route(config('platform.index'));
-    }
+    }*/
+
+
+
 }

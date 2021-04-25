@@ -16,6 +16,7 @@ use Orchid\Support\Facades\Alert;
 use Orchid\Support\Facades\Layout;
 use App\Models\MyModels\Club;
 
+
 class Add_club extends Screen
 {
     /**
@@ -23,14 +24,14 @@ class Add_club extends Screen
      *
      * @var string
      */
-    public $name = 'Add club';
+    public $name = 'Ajouter un club';
 
     /**
      * Display header description.
      *
      * @var string|null
      */
-    public $description = 'Add club';
+    public $description = 'Détails tels que nom, chef et Description';
 
     /**
      * Query data.
@@ -45,7 +46,7 @@ class Add_club extends Screen
         $this->exists = $club->exists;
 
         if($this->exists){
-            $this->name = 'Addclub';
+            $this->name = 'Ajouter un club';
         }
 
         return [
@@ -53,11 +54,15 @@ class Add_club extends Screen
         ];
     }
 
+
+
     /**
      * Button commands.
      *
      * @return \Orchid\Screen\Action[]
      */
+
+
     public function commandBar(): array
     {
         return [
@@ -80,10 +85,10 @@ class Add_club extends Screen
 
 
                 Input::make('Club.name')
-                    ->type('text')
+                    ->type('Sting')
                     ->required()
-                    ->title('Name')
-                    ->placeholder('Name'),
+                    ->title('Nom club')
+                    ->placeholder('Nom club'),
 
                 TextArea::make('Club.description')
                     ->type('text')
@@ -92,29 +97,40 @@ class Add_club extends Screen
                     ->placeholder('Description'),
 
 
-                Relation::make('Club.cin_leader')
-                    ->title('CIN leader')
+            /*    Input::make('Club.cin_leader')
+                    ->type('Integer')
                     ->required()
-                    ->placeholder('CIN leader')
-                    ->fromModel(User::class, 'national_identity_card'),
+                    ->title('CIN')
+                   // ->placeholder('this->user.national_identity_card')
+               //     ->getOldValue(this->user.national_identity_card)
 
+               ->required()
+               ->fromModel(User::class, 'national_identity_card')
 
+                    ,*/
+
+                Relation::make('Club.cin_leader')
+                    ->title('CIN Chef')
+                    ->required()
+                    ->type('Integer')
+                    ->placeholder('CIN Chef')
+                    ->fromModel(User::class,'national_identity_card'),
 
 
                 Cropper::make('Club.logo')
                     ->targetRelativeUrl()
-                    ->title('Large web logo image')
-                    ->width(500)
+                    ->title('logo du club')
+                    ->width(700)
                     ->height(600),
 
 
                 Cropper::make('Club.banner')
                     ->targetRelativeUrl()
-                    ->title('Large web banner image')
+                    ->title('Grande image de banniére club')
                     ->width(1500)
                     ->height(600),
 
-                Button::make('Add club')
+                Button::make('Ajouter')
                     ->icon('check')
                     ->method('addnewclub')
                     ->canSee(!$this->exists)
@@ -130,8 +146,24 @@ class Add_club extends Screen
     {
         $club->fill($request->get('Club'))->save(); //Club esm model
 
-        Alert::info('You have successfully Add club.');
+        Alert::info('Vous avez réussi à ajouter un club.');
 
         return redirect()->route('platform.Add_club');
     }
+
+
+
+
+
+
+
+
+
+
+    public $permission = [
+        'platform.Add_club'
+    ];
+
+
+
 }

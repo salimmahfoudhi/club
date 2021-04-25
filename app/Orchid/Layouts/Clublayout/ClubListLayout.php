@@ -38,7 +38,7 @@ class ClubListLayout extends Table
                           ->route('platform.display_club', $club);  //zeyeddd??
                   }),*/
 
-            TD::make('name', 'name')
+            TD::make('name', 'Nom')
                 ->filter(TD::FILTER_TEXT)
                 ->render(function (Club $club) {
                     return Link::make($club->name)
@@ -47,8 +47,8 @@ class ClubListLayout extends Table
 
 
 
-            TD::make('id_leader', 'id_leader'),
-            TD::make('description', 'description'),
+            TD::make('cin_leader', 'Cin Chef'),
+           TD::make('description', 'Description'),
 
 
 
@@ -61,7 +61,7 @@ class ClubListLayout extends Table
                               class='mw-100 d-block img-fluid'>";
                 }),
 
-            TD::make('banner', 'Banner')
+            TD::make('banner', 'Banniére')
                 ->width('150')
                 ->render(function (Club $club) {
 
@@ -78,14 +78,14 @@ class ClubListLayout extends Table
                         ->icon('options-vertical')
                         ->list([
 
-                            Link::make(__('Edit'))
+                            Link::make(__('Modifier'))
                                 ->route('platform.Update_and_Remove_Club', $club->id)
                                 ->icon('pencil'),
 
-                            Button::make(__('Delete'))
+                            Button::make(__('Suppimer'))
                                 ->icon('trash')
                                 ->method('remove')
-                                ->confirm(__('Once the account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.'))
+                                ->confirm(__('Une fois le Club supprimer, toutes ses ressources et données seront définitivement supprimées. '))
                                 ->parameters([
                                     'id' => $club->id,
                                 ]),

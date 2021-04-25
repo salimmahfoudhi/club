@@ -39,7 +39,7 @@ class PublicationListLayout extends Table
                          ->route('platform.Update_And_Remove_Pub', $publication);}),
 
 
-            TD::make('id_publisher','Id publisher'),
+            TD::make('cin_publisher','Cin \\automatic'),
             TD::make('type', 'Type'),
             TD::make('banner', 'Banner')
                 ->width('150')
@@ -61,14 +61,14 @@ class PublicationListLayout extends Table
                         ->icon('options-vertical')
                         ->list([
 
-                            Link::make(__('Edit'))
+                            Link::make(__('Modifier'))
                                 ->route('platform.Update_And_Remove_Pub', $publication->id)
                                 ->icon('pencil'),
 
-                            Button::make(__('Delete'))
+                            Button::make(__('Suppimer'))
                                 ->icon('trash')
                                 ->method('remove')
-                                ->confirm(__('Once the account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.'))
+                                ->confirm(__('Une fois le Publication supprimer, toutes ses ressources et données seront définitivement supprimées.'))
                                 ->parameters([
                                     'id' => $publication->id,
                                 ]),

@@ -25,14 +25,16 @@ class Update_and_Remove_Club extends Screen
 
 
 
-    public $name = 'Update_and_Remove_Club';
+    public $name = 'Modifier club';
 
     /**
      * Display header description.
      *
      * @var string
      */
-    public $description = 'Update_and_Remove_Club';
+    public $description = 'Détails tels que Nom, Chef et Description
+
+';
 
     /**
      * @var bool
@@ -51,7 +53,7 @@ class Update_and_Remove_Club extends Screen
         $this->exists = $club->exists;
 
         if($this->exists){
-            $this->name = 'Edit User ss';
+            $this->name = 'Modifier club';
         }
 
         $club->load('attachment');
@@ -71,13 +73,13 @@ class Update_and_Remove_Club extends Screen
     {
         return [
 
-            Button::make('Update')
+            Button::make('Enregistrer')
                 ->icon('note')
                 ->method('createOrUpdate')
                 ->canSee($this->exists)
                 ->type(Color::SECONDARY()),
 
-            Button::make('Remove')
+            Button::make('Supprimer')
                 ->icon('trash')
                 ->method('remove')
                 ->canSee($this->exists)
@@ -101,8 +103,8 @@ class Update_and_Remove_Club extends Screen
                 Input::make('Club.name')
                     ->type('text')
                     ->required()
-                    ->title('Name')
-                    ->placeholder('Name'),
+                    ->title('Nom du club')
+                    ->placeholder('Nom du club'),
 
                 TextArea::make('Club.description')
                     ->type('text')
@@ -110,11 +112,13 @@ class Update_and_Remove_Club extends Screen
                     ->title('Description')
                     ->placeholder('Description'),
 
-                Input::make('Club.id_leader')
+                Input::make('Club.cin_leader')
                     ->type('Integer')
                     ->required()
-                    ->title('Id leader')
-                    ->placeholder('Id leader'),
+                    ->title('CIN Chef')
+                    ->placeholder('CIN Chef'),
+
+
 
 
 
@@ -122,7 +126,7 @@ class Update_and_Remove_Club extends Screen
                 Cropper::make('Club.logo')
                     ->targetRelativeUrl()
                     ->title('Large web logo image')
-                    ->width(500)
+                    ->width(700)
                     ->height(600),
 
 
@@ -174,5 +178,9 @@ class Update_and_Remove_Club extends Screen
 
         return redirect()->route('platform.display_club');
     }
+
+    public $permission = [
+        'platform.display_club'
+    ];
 }
 

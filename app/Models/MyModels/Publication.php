@@ -26,6 +26,8 @@ class Publication extends Model
         'created_at',
         'updated_at',
         'cin_publisher',
+        'date_and_time',
+        'name',
     ];
 
     protected $allowedFilters = [
@@ -36,6 +38,8 @@ class Publication extends Model
         'created_at',
         'updated_at',
         'cin_publisher',
+        'date_and_time',
+        'name',
     ];
 
     /**
@@ -49,6 +53,8 @@ class Publication extends Model
         'created_at',
         'updated_at',
         'cin_publisher',
+        'date_and_time',
+        'name',
     ];
 
   //  public $timestamps=false;

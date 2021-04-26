@@ -36,10 +36,11 @@
 </head>
 
 <body>
-@include('sections.header');
 
-@yield('content');
+@include('sections.header')
 
-@include('sections.footer');
+@yield('content')
+
+@include('sections.footer')
 </body>
 </html>

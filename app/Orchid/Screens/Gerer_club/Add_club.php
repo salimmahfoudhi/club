@@ -88,13 +88,15 @@ class Add_club extends Screen
                     ->type('Sting')
                     ->required()
                     ->title('Nom club')
-                    ->placeholder('Nom club'),
+                    ->placeholder('Nom club')
+                    ->horizontal(),
 
                 TextArea::make('Club.description')
                     ->type('text')
                     ->required()
                     ->title('Description')
-                    ->placeholder('Description'),
+                    ->placeholder('Description')
+                    ->horizontal(),
 
 
             /*    Input::make('Club.cin_leader')
@@ -114,27 +116,32 @@ class Add_club extends Screen
                     ->required()
                     ->type('Integer')
                     ->placeholder('CIN Chef')
-                    ->fromModel(User::class,'national_identity_card'),
+                    ->fromModel(User::class,'national_identity_card')
+                    ->horizontal(),
 
 
                 Cropper::make('Club.logo')
                     ->targetRelativeUrl()
                     ->title('logo du club')
                     ->width(700)
-                    ->height(600),
+                    ->height(600)
+                    ->horizontal(),
 
 
                 Cropper::make('Club.banner')
                     ->targetRelativeUrl()
                     ->title('Grande image de banniére club')
                     ->width(1500)
-                    ->height(600),
+                    ->height(600)
+                    ->horizontal(),
 
                 Button::make('Ajouter')
                     ->icon('check')
                     ->method('addnewclub')
                     ->canSee(!$this->exists)
-                    ->type(Color::SECONDARY()),
+                    ->type(Color::SECONDARY())
+                    ->title('')
+                    ->horizontal(),
 
 
 

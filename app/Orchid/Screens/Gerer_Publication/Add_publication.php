@@ -87,7 +87,8 @@ class Add_publication extends Screen
                     ->required()
                     ->type('Integer')
                     ->placeholder('CIN Publisher')
-                    ->fromModel(User::class, 'national_identity_card'),
+                    ->fromModel(User::class, 'national_identity_card')
+                    ->horizontal(),
 
 
 
@@ -98,30 +99,53 @@ class Add_publication extends Screen
                         'Formation'   => 'Formation',
 
                     ])
-                    ->title('Sélectionner le type'),
+                    ->title('Sélectionner le type')
+                    ->horizontal(),
 
-
-                Cropper::make('Publication.banner')
-                    ->targetRelativeUrl()
-                    ->title('Grande image de banniére Publication')
-                    ->required()
-                    ->width(1500)
-                    ->height(600),
-
+                Input::make('Publication.name')
+                    ->type('string')
+                    ->title('Nom')
+                    ->placeholder('Nom')
+                    ->horizontal(),
 
 
                 TextArea::make('Publication.description')
                     ->type('text')
                     ->required()
                     ->title('Description')
-                    ->placeholder('Description'),
+                    ->placeholder('Description')
+                    ->horizontal(),
+
+
+
+
+                Input::make('Publication.date_and_time')
+                    ->type('datetime-local')
+                    ->title('Date et l\'heure')
+
+                    ->horizontal(),
+
+
+                Cropper::make('Publication.banner')
+                    ->targetRelativeUrl()
+                    ->title('Grande image de banniére Publication')
+                    ->required()
+                    ->width(700)
+                    ->height(500)
+                    ->horizontal(),
+
+
+
+
 
 
                 Button::make('Ajouter')
                     ->icon('check')
                     ->method('addnewPublication')
                     ->canSee(!$this->exists)
-                    ->type(Color::SECONDARY()),
+                    ->title('')
+                    ->type(Color::SECONDARY())
+                    ->horizontal(),
 
 
 

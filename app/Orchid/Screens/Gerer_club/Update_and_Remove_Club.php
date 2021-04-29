@@ -104,19 +104,22 @@ class Update_and_Remove_Club extends Screen
                     ->type('text')
                     ->required()
                     ->title('Nom du club')
-                    ->placeholder('Nom du club'),
+                    ->placeholder('Nom du club')
+                    ->horizontal(),
 
                 TextArea::make('Club.description')
                     ->type('text')
                     ->required()
                     ->title('Description')
-                    ->placeholder('Description'),
+                    ->placeholder('Description')
+                    ->horizontal(),
 
                 Input::make('Club.cin_leader')
                     ->type('Integer')
                     ->required()
                     ->title('CIN Chef')
-                    ->placeholder('CIN Chef'),
+                    ->placeholder('CIN Chef')
+                    ->horizontal(),
 
 
 
@@ -127,14 +130,16 @@ class Update_and_Remove_Club extends Screen
                     ->targetRelativeUrl()
                     ->title('Large web logo image')
                     ->width(700)
-                    ->height(600),
+                    ->height(600)
+                    ->horizontal(),
 
 
                 Cropper::make('Club.banner')
                     ->targetRelativeUrl()
                     ->title('Large web banner image')
                     ->width(1500)
-                    ->height(600),
+                    ->height(600)
+                    ->horizontal(),
 
 
 

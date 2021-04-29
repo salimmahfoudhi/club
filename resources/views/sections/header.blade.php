@@ -2,9 +2,9 @@
 <section id="topbar" class="d-flex align-items-center">
     <div class="container d-flex justify-content-center justify-content-md-between">
         <div class="contact-info d-flex align-items-center">
-            <h6><i class="bi bi-box-arrow-in-right"><a href="mailto:contact@example.com"> Login&emsp;</a></i></h6>
+            <h6><i class="bi bi-box-arrow-in-right"><a href="/login"> Login&emsp;</a></i></h6>
 
-            <h6>  <i><a href="mailto:contact@example.com">S'inscrire</a></i> </h6>
+            <h6>  <i><a href="\inscrire">S'inscrire</a></i> </h6>
             <i></i>
         </div>
         <div class="social-links d-none d-md-flex align-items-center">

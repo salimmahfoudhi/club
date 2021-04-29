@@ -18,14 +18,14 @@ class Display_publication extends Screen
      *
      * @var string
      */
-    public $name = 'Display_publication';
+    public $name = 'Afficher Publications';
 
     /**
      * Display header description.
      *
      * @var string|null
      */
-    public $description = 'Display_publication';
+    public $description = 'Afficher Publications';
 
     /**
      * Query data.
@@ -54,7 +54,7 @@ class Display_publication extends Screen
     public function commandBar(): array
     {
         return [
-            Link::make('add Pub')
+            Link::make('Ajouter Publication')
                 ->icon('plus')
                 ->type(Color::SECONDARY())
                 ->route('platform.Add_publication'),

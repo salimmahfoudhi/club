@@ -130,8 +130,8 @@ class Add_publication extends Screen
                     ->targetRelativeUrl()
                     ->title('Grande image de banniére Publication')
                     ->required()
-                    ->width(700)
-                    ->height(500)
+                    ->width(900)
+                    ->height(600)
                     ->horizontal(),
 
 

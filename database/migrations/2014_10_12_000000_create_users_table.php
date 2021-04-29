@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
             $table->bigInteger('national_identity_card')->unique()->nullable();
             $table->string('f_registration_number')->unique()->nullable();
             $table->string('personal_image')->nullable()->default('/storage/2021/04/22/260a066bb1e4aee72380ba65f3beb11f9960460e.png');
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->rememberToken();
             $table->timestamps();
 

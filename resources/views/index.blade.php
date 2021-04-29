@@ -13,7 +13,7 @@
           <div class="carousel-item active" style="background: url(assets/img/slide/slide-1.jpg)">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Eterna</span></h2>
+                <h2 class="animate__animated animate__fadeInDown">Bienvenue à <span>Clubii</span></h2>
                 <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
                 <a href="" class="btn-get-started animate__animated animate__fadeInUp">Read More</a>
               </div>
@@ -24,7 +24,7 @@
           <div class="carousel-item" style="background: url(assets/img/slide/slide-2.jpg)">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2 class="animate__animated fanimate__adeInDown">Lorem <span>Ipsum Dolor</span></h2>
+                <h2 class="animate__animated fanimate__adeInDown">Bienvenue à <span>Clubii</span></h2>
                 <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
                 <a href="" class="btn-get-started animate__animated animate__fadeInUp">Read More</a>
               </div>
@@ -35,7 +35,7 @@
           <div class="carousel-item" style="background: url(assets/img/slide/slide-3.jpg)">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2 class="animate__animated animate__fadeInDown">Sequi ea <span>Dime Lara</span></h2>
+                <h2 class="animate__animated animate__fadeInDown">Bienvenue à <span>Clubii</span></h2>
                 <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
                 <a href="" class="btn-get-started animate__animated animate__fadeInUp">Read More</a>
               </div>
@@ -61,15 +61,15 @@
     <!-- ======= Featured Section ======= -->
 
     <section id="featured" class="featured">
-        <div class="container">
+        <div class="container ">
 
-            <div class="row">
+            <div class="row"  >
         <?php $i=1 ?>
         @foreach($evenements as $evenement)
 
 
         @if($i==1)
-                    <div class="col-lg-4">
+                 <div class="col-lg-4">
                         <div class="icon-box">
                             <i class=""><a href="profil"><img src="{{ $evenement['banner']  }}" class="img-fluid" alt=""></a></i>
                             <h3><a href="profil">{{ $evenement['name']  }}<br> {{ $evenement['date_and_time']  }}</a></h3>

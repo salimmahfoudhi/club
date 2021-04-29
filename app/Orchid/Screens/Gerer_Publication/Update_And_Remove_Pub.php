@@ -25,14 +25,14 @@ class Update_And_Remove_Pub extends Screen
 
 
 
-    public $name = 'Update_and_Remove_Pub';
+    public $name = 'Modifier Publication';
 
     /**
      * Display header description.
      *
      * @var string
      */
-    public $description = 'Update_and_Remove_Pub';
+    public $description = 'Modifier Publication Détails tels que Nom, Type et Description';
 
     /**
      * @var bool
@@ -71,13 +71,13 @@ class Update_And_Remove_Pub extends Screen
     {
         return [
 
-            Button::make('Update')
+            Button::make('Enregistrer')
                 ->icon('note')
                 ->method('createOrUpdate')
                 ->canSee($this->exists)
                 ->type(Color::SECONDARY()),
 
-            Button::make('Remove')
+            Button::make('Supprimer')
                 ->icon('trash')
                 ->method('remove')
                 ->canSee($this->exists)
@@ -99,7 +99,8 @@ class Update_And_Remove_Pub extends Screen
                     ->type('Integer')
                     ->required()
                     ->title('Cin Publisher')
-                    ->placeholder('Cin Publisher'),
+                    ->placeholder('Cin chef')
+                    ->horizontal(),
 
 
 
@@ -110,15 +111,17 @@ class Update_And_Remove_Pub extends Screen
                         'Formation'   => 'Formation',
 
                     ])
-                    ->title('Select type'),
+                    ->title('Sélectionner le type')
+                    ->horizontal(),
 
 
                 Cropper::make('Publication.banner')
                     ->targetRelativeUrl()
                     ->title('Large web banner image')
                     ->required()
-                    ->width(1500)
-                    ->height(600),
+                    ->width(900)
+                    ->height(600)
+                    ->horizontal(),
 
 
 
@@ -126,7 +129,8 @@ class Update_And_Remove_Pub extends Screen
                     ->type('text')
                     ->required()
                     ->title('Description')
-                    ->placeholder('Description'),
+                    ->placeholder('Description')
+                    ->horizontal(),
 
 
 
@@ -164,7 +168,7 @@ class Update_And_Remove_Pub extends Screen
             $request->input('Publication.attachment', [])
         );
 
-        Alert::info('You have successfully update an Pub.');
+        Alert::info('La mise à jour a réussi');
 
         return redirect()->route('platform.Display_publication');
     }
@@ -179,7 +183,7 @@ class Update_And_Remove_Pub extends Screen
     {
         $publication->delete();
 
-        Alert::info('You have successfully deleted the Pub.');
+        Alert::info('Vous avez supprimé le pub avec succès.');
 
         return redirect()->route('platform.Display_publication');
     }

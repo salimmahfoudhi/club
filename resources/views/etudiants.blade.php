@@ -29,7 +29,7 @@
               <h4>{{ $etudiant['last_name']  }} {{ $etudiant['name']  }}</h4>
               <span>Chief Executive Officer</span>
               <p>
-                Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut
+                  {{ $etudiant['disctiption']  }}
               </p>
               <div class="social">
                 <a href=""><i class="bi bi-twitter"></i></a>

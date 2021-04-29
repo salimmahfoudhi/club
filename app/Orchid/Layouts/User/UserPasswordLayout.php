@@ -35,7 +35,7 @@ class UserPasswordLayout extends Rows
 
             Password::make('user.password')
                 ->placeholder($plaseholder)
-                ->title(__('Password')),
+                ->title(__('Mot de passe')),
         ];
     }
 }

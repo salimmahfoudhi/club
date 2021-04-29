@@ -26,7 +26,7 @@ class UserListLayout extends Table
     public function columns(): array
     {
         return [
-            TD::make('name', __('Name'))
+            TD::make('name', __('Nom'))
                 ->sort()
                 ->cantHide()
                 ->filter(TD::FILTER_TEXT)
@@ -40,13 +40,13 @@ class UserListLayout extends Table
                               class='mw-100 d-block img-fluid'>";
              }),*/
 
-            TD::make('last_name', 'Last Name'),
+            TD::make('last_name', 'Prenom'),
 
             TD::make('national_identity_card', 'CIN')
 
 
                ,
-            TD::make('f_registration_number', 'Faculty Registration Number'),
+            TD::make('f_registration_number', 'Numéro d\'inscription de la faculté'),
 
 
 
@@ -65,10 +65,10 @@ class UserListLayout extends Table
                 }),
 
 
-            TD::make('Date_of_Birth', 'Date of Birth'),
-            TD::make('phone_number', 'Phone_Number'),
+            TD::make('Date_of_Birth', 'Date de naissance'),
+            TD::make('phone_number', 'Numéro de téléphone'),
             TD::make('description', 'Description'),
-            TD::make('state', 'State'),
+            TD::make('state', 'Etat'),
 
             TD::make('updated_at', __('Last edit'))
                 ->sort()

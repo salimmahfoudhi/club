@@ -25,6 +25,14 @@ Route::get('/clubs', 'App\Http\Controllers\FrontController@ListeClubs');
 Route::get('/evenments', 'App\Http\Controllers\FrontController@ListeEvenements');
 Route::get('/formations', 'App\Http\Controllers\FrontController@ListeFormations');
 Route::get('/', 'App\Http\Controllers\FrontController@Liste3Evenements');
+Route::get('/login', function () {
+    return view('login');});
+
+
+Route::get('/inscrire', 'App\Http\Controllers\FrontController@inscrire');
+Route::POST('/InsertUser', 'App\Http\Controllers\FrontController@InsertDbuser')->name('insert.user');
+
+
 
 
 

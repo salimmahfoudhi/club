@@ -39,30 +39,30 @@ class UserEditLayout extends Rows
                 ->type('bigInteger')
                 ->required()
                 ->max(9)
-                ->title('National Identity Card')
-                ->placeholder('National Identity Card'),
+                ->title('Carte d\'identité')
+                ->placeholder('CIN'),
 
             Input::make('user.f_registration_number')
                 ->type('text')
                 ->max(15)
                 ->required()
-                ->title('Faculty Registration Number')
-                ->placeholder('Faculty Registration Number'),
+                ->title('Numéro d\'inscription de la faculté')
+                ->placeholder('Numéro d\'inscription de la faculté'),
 
 
             Input::make('user.name')
                 ->type('text')
                 ->max(255)
                 ->required()
-                ->title(__('First Name'))
-                ->placeholder(__('First Name')),
+                ->title(__('Nom'))
+                ->placeholder(__('Nom')),
 
             Input::make('user.last_name')
                 ->type('text')
                 ->max(255)
                  ->required()
-                ->title('Last Name')
-                ->placeholder('Last Name'),
+                ->title('Prénom')
+                ->placeholder('Prénom'),
 
 
 
@@ -76,21 +76,21 @@ class UserEditLayout extends Rows
 
             Cropper::make('user.personal_image')
                 ->targetRelativeUrl()
-                ->title('Large web personal photo image, generally in the front and center')
+                ->title('Grande image de photo personnelle Web, ')
                 ->width(500)
                 ->height(500),
 
                 Input::make('user.Date_of_Birth')
                 ->type('date')
                 ->required()
-                ->title('Date of Birth')
-                ->placeholder('Date of Birth'),
+                ->title('Date de naissance')
+                ->placeholder('Date de naissance'),
 
             Input::make('user.phone_number')
                 ->type('tel')
                 ->max(12)
-                ->title('Phone Number')
-                ->placeholder('Phone Number'),
+                ->title('numéro de téléphone')
+                ->placeholder('numéro de téléphone'),
 
 
             TextArea::make('user.description')
@@ -102,7 +102,7 @@ class UserEditLayout extends Rows
 
             Select::make('user.state')
                 ->required()
-                ->title('State')
+                ->title('État')
                 ->options([
 
                     '1'  => 'activate',

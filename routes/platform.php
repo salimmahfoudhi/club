@@ -118,7 +118,8 @@ Route::screen('RemovePubication',\App\Orchid\Screens\Gerer_Publication\Update_Pu
 Route::screen('UpdateClub',\App\Orchid\Screens\Gerer_club\Update_Club::class)->name('platform.UpdateClub');
 Route::screen('RemoveClub',\App\Orchid\Screens\Gerer_club\Remove_Club::class)->name('platform.RemoveClub');
 Route::screen('Add_CodeIns',\App\Orchid\Screens\Gerer_codeins\AddCodeIns::class)->name('platform.Add_Codeins');
-
+Route::screen('Affichercode',\App\Orchid\Screens\Gerer_codeins\Display_CodeIns::class)->name('platform.Display_CodeIns');
+Route::screen('updatecodeins/{Display_CodeIns?}',\App\Orchid\Screens\Gerer_codeins\Update_And_Remove_Code::class)->name('platform.Update_And_Remove_Code');
 
 Route::screen('RemoveUpdateUser/{displayuser?}',\App\Orchid\Screens\Gerer_User\Update_and_Romove_User::class)
          ->name('platform.Update_and_Romove_User');

@@ -20,13 +20,14 @@ class Allfcodeins extends Model
     public  $table='allfcodeins';
 
     protected  $fillable=[
-
+        'id',
         'CodeIns',
 
 
     ];
 
     protected $allowedFilters = [
+        'id',
         'CodeIns',
 
     ];
@@ -35,6 +36,7 @@ class Allfcodeins extends Model
      * @var array
      */
     protected $allowedSorts = [
+        'id',
         'CodeIns',
 
     ];

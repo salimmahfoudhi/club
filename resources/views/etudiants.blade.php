@@ -25,9 +25,15 @@
             @foreach($etudiants as $etudiant)
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="member">
-              <img src="{{ $etudiant['personal_image']  }}" alt="">
-              <h4>{{ $etudiant['last_name']  }} {{ $etudiant['name']  }}</h4>
-              <span>Chief Executive Officer</span>
+
+
+                <a href="/etudiants/{{$etudiant['id']}}"><img src="{{ $etudiant['personal_image']  }}" alt=""></a>
+
+
+                <a href="/etudiants/{{$etudiant['id']}}" style="color:black;!important;"><h4> {{ $etudiant['last_name']  }} {{ $etudiant['name']  }}</h4></a>
+
+              <span>Admin</span>
+
               <p>
                   {{ $etudiant['disctiption']  }}
               </p>

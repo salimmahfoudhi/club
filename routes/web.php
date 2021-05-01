@@ -28,11 +28,12 @@ Route::get('/', 'App\Http\Controllers\FrontController@Liste3Evenements');
 Route::get('/login', function () {
     return view('login');});
 
+Route::get('/inscrire', 'App\Http\Controllers\Insert@inscrire');
+Route::POST('/InsertUser', 'App\Http\Controllers\Insert@InsertDbuser')->name('insert.user');
+/*Route::get('/profile/{etudiants?}', function () {
+    return view('profile');
+});*/
+Route::post('/code-register', 'App\Http\Controllers\FrontController@VerificationCodeRegister')->name('VerificationCodeRegister');
 
-Route::get('/inscrire', 'App\Http\Controllers\FrontController@inscrire');
-Route::POST('/InsertUser', 'App\Http\Controllers\FrontController@InsertDbuser')->name('insert.user');
-
-
-
-
-
+Route::get('/etudiants/{id}', 'App\Http\Controllers\Selecte@Etudiant');
+Route::get('/clubs/{id}', 'App\Http\Controllers\Selecte@club');

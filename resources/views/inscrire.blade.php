@@ -38,9 +38,11 @@
 						Bienvenue
                         </span></a>
                     <a href="\"><span class="login100-form-title p-b-48">
-						<i class="zmdi zmdi-font"></i>
+						<i> <img src="https://i.ibb.co/vq97771/3096988.png" width="55" height="55"></i>
+
                         </span></a>
-                    @if(Session::has('success'))
+
+                @if(Session::has('success'))
                     <div class="alert alert-success" role="alert">
                         {{Session::get('success')}}
                     </div>
@@ -51,10 +53,8 @@
                     @enderror
                     <div class="wrap-input100 " >
 
-
-
-
-                        <small class="form-text text-danger">*</small> Numéro d'inscription de la faculté <input class="input100" type="text" name="f_registration_number" >
+                        Numéro d'inscription de la faculté
+                        <input class="input100" type="text" name="f_registration_number" >
                     </div>
                     @error('name')
                     <small class="form-text text-danger">{{$message}}</small>
@@ -131,6 +131,18 @@
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
+<script>
+  <!--  function codeRegister() {
+        var url =  '{{ route('VerificationCodeRegister') }}';
+        var form = $('#forminscrit');
 
+        $.easyAjax({
+            url: url,
+            type: 'POST',
+            container: '#forminscrit',
+            data: form.serialize()
+        })
+    }-->
+</script>
 </body>
 </html>

@@ -4,6 +4,8 @@ namespace App\Orchid\Screens\Gerer_Publication;
 
 use App\Models\MyModels\Publication;
 use App\Orchid\Layouts\Clublayout\ClubFiltersLayout;
+use App\Orchid\Layouts\Publicationlayout\CodeFiltersLayout;
+use App\Orchid\Layouts\Publicationlayout\CodeInsListLayout;
 use App\Orchid\Layouts\Publicationlayout\PubFiltersLayout;
 use App\Orchid\Layouts\Publicationlayout\PublicationListLayout;
 use Orchid\Screen\Actions\Link;
@@ -70,7 +72,7 @@ class Display_publication extends Screen
     public function layout(): array
     {
         return [
-            PubFiltersLayout::class,
+//            PubFiltersLayout::class,
 
             PublicationListLayout::class
 
@@ -89,7 +91,7 @@ class Display_publication extends Screen
 
 
     public $permission = [
-        'platform.Display_publication'
+        'platform.Display_CodeIns'
     ];
 
 

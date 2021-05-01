@@ -2,6 +2,9 @@
 <html lang="fr">
 <head>
 	<title>Login V2</title>
+
+
+
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -37,7 +40,8 @@
 						Bienvenue
                         </span></a>
                     <a href="\"><span class="login100-form-title p-b-48">
-						<i class="zmdi zmdi-font"></i>
+						<i> <img src="https://i.ibb.co/vq97771/3096988.png" width="55" height="55"></i>
+
                         </span></a>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">

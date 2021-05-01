@@ -15,6 +15,7 @@ class AllFCodeins extends Migration
     {
         {
             Schema::create('AllFCodeins', function (Blueprint $table) {
+                $table->id()->unique();
 
                 $table->string('CodeIns')->unique();
 

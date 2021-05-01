@@ -29,10 +29,10 @@
               <div class="row">
 
                   <div class="col-lg-6">
-                      <a href="/"> <img  src="{{ $club['banner']  }}" alt="" class="img-fluid"></a>
+                      <a href="/clubs/{{ $club['id']  }}">  <img  src="{{ $club['banner']  }}" alt="" class="img-fluid"></a>
                   </div>
                   <div class="col-lg-6 pt-4 pt-lg-0 content">
-                      <a href="/"> <h3>{{ $club['name']  }}</h3></a>
+                      <a href="/clubs/{{ $club['id']  }}"> <h3>{{ $club['name']  }}</h3></a>
                       <br>
                       <p class="fst-italic">
                           {{ $club['description']  }}

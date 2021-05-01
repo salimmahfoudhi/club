@@ -70,7 +70,7 @@ class display_club extends Screen
     public function layout(): array
     {
         return [
-            ClubFiltersLayout::class,
+          //  ClubFiltersLayout::class,
             ClubListLayout::class
         ];
     }

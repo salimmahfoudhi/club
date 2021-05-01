@@ -122,6 +122,12 @@ class PlatformProvider extends OrchidServiceProvider
                 ->withChildren(),
 
 
+            ItemMenu::label('Afficher CodeIns')
+                ->route('platform.Display_CodeIns')
+                //  ->icon('user-follow')
+                ->place('CodeIns')
+                 ->permission('platform.Display_CodeIns')
+                ->sort(1000),
 
             ItemMenu::label('Ajouter CodeIns')
                 ->route('platform.Add_Codeins')
@@ -129,6 +135,9 @@ class PlatformProvider extends OrchidServiceProvider
                 ->place('CodeIns')
                 ->permission('platform.Add_Codeins')
                 ->sort(1000),
+
+
+
 
 
 
@@ -209,7 +218,8 @@ class PlatformProvider extends OrchidServiceProvider
 
             ItemPermission::group(__('Code Ins'))
                 ->addPermission('platform.Add_Codeins', 'Ajouter Code Ins')
-             ,
+                ->addPermission('platform.Display_CodeIns', 'Afficher Code Ins')
+        ,
 
         ];
 

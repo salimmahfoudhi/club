@@ -83,6 +83,12 @@ class AddCodeIns extends Screen
 
             Layout::rows([
 
+                Input::make('Allfcodeins.national_identity_card')
+                    ->type('Sting')
+                    ->required()
+                    ->title('CIN Etudiant')
+                    ->placeholder('CIN Etudiant')
+                    ->horizontal(),
 
 
                 Input::make('Allfcodeins.CodeIns')

@@ -8,21 +8,38 @@
     <main id="main">
 <div class="page-content page-container" id="page-content">
     <div class="padding">
-        <div class="row container d-flex justify-content-center">
+        <div class="col-12">
+        <div class="container d-flex justify-content-center">
             @foreach($clubs as $club)
-            <div>
+            <div class="col-12">
+
+
+
+
                 <div class="card user-card-full">
                     <div class="row m-l-0 m-r-0">
                         <div class=" bg-c-lite-green user-profile">
-                            <div class="card-block  text-white">
-                                <div class="m-b-25"> <img src="{{$club['logo']}}" width="100" height="100"> </div>
-                                <h6 class="f-w-600">{{$club['name']}}</h6>
 
-                                <p>Web Designer</p> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+
+
+                            <div class="card-block  text-white" style="background: url('{{$club['banner']}}') no-repeat top;min-height:400px;">
+
+
+
+                                <div class="m-b-25" style="text-align:center;position:relative;top: 310px;">
+                                    <img  src="{{$club['logo']}}" style="border-radius: 50%;border:2px solid #ccc;width:210px;">
+
+                                </div>
+
                             </div>
                         </div>
                         <div class="">
                             <div class="card-block">
+                                <div class="row" style="text-align: center;padding-top:50px;">
+                                    <h6 class="f-w-600">{{$club['name']}}</h6>
+
+                                    <p>Web Designer</p> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+                                </div>
                                 <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Information</h6>
                                 <div class="row">
                                     <div class="col-sm-6">
@@ -32,7 +49,7 @@
                                            @if ($chef['id']==$club['cin_leader'])
                                             <h6 class="text-muted f-w-400">{{$chef['email']}}</h6>
                                             @endif
-                                            
+
                                         @endforeach
 
 
@@ -64,6 +81,7 @@
                 </div>
             </div>
             @endforeach
+        </div>
         </div>
     </div>
 </div>

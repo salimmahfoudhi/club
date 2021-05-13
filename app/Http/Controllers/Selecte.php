@@ -17,11 +17,13 @@ class Selecte extends Controller
             $etudiants = User::where("id",$id) ->get();
 
 
-          /*  $roleuser1=Role_user::where("user_id",$id) ->get()->value('role_id');
-            $roleuser2=$roleuser1['role_id'];
+            $roleusers=Role_user::where("user_id",$id) ->get();
+          /*  $roleuser2=$roleuser1['role_id'];*/
 
-            $roles= Role::where("id",$roleuser2)->get();*/
-        return view('profile',compact('etudiants'));
+            $roles= Role::get();
+
+
+        return view('profile',compact('etudiants','roles', 'roleusers'));
     }
 
     public function club(Request $request){

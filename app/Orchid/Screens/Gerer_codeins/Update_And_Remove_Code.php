@@ -99,6 +99,14 @@ class Update_And_Remove_Code extends Screen
         return [
             Layout::rows([
 
+                Input::make('Allfcodeins.national_identity_card')
+                    ->type('Sting')
+                    ->required()
+                    ->title('CIN Etudiant')
+                    ->placeholder('CIN Etudiant')
+                    ->horizontal(),
+
+
 
                 Input::make('Allfcodeins.CodeIns')
                     ->type('Sting')

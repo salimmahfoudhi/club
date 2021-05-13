@@ -25,6 +25,8 @@ class FrontController extends Controller
 {
     public function ListeEtudiants(){
         $etudiants = User::/*where ("state",1)->*/ where("name",'<>',"admin")->orderBy('last_name', 'asc')  ->get();
+
+
         return view('etudiants',compact('etudiants'));
     }
 
@@ -64,11 +66,7 @@ class FrontController extends Controller
 
 
 
-public function VerificationCodeRegister(Request $request){
-        $code= $request->f_registration_number;
-    $existe = Allfcodeins::where ("CodeIns",$code)->get();
-    return view('formations', compact('formations'));
-}
+
 
 
 

@@ -28,7 +28,7 @@ Route::get('/', 'App\Http\Controllers\FrontController@Liste3Evenements');
 Route::get('/login', function () {
     return view('login');});
 
-Route::get('/inscrire', 'App\Http\Controllers\Insert@inscrire');
+//Route::get('/inscrire', 'App\Http\Controllers\Insert@inscrire');
 Route::POST('/InsertUser', 'App\Http\Controllers\Insert@InsertDbuser')->name('insert.user');
 /*Route::get('/profile/{etudiants?}', function () {
     return view('profile');
@@ -37,3 +37,11 @@ Route::post('/code-register', 'App\Http\Controllers\FrontController@Verification
 
 Route::get('/etudiants/{id}', 'App\Http\Controllers\Selecte@Etudiant');
 Route::get('/clubs/{id}', 'App\Http\Controllers\Selecte@club');
+
+
+Route::get('/inscrire', 'App\Http\Controllers\AddUserController@CreateUser');
+Route::Post('/Save', 'App\Http\Controllers\AddUserController@Save')->name('ajax.SaveUser');
+
+######### salim test #########
+
+Route::post('/salim', 'App\Http\Controllers\salimtest@rech')->name('salim.test');

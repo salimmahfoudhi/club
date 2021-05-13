@@ -22,6 +22,7 @@ class Allfcodeins extends Model
     protected  $fillable=[
         'id',
         'CodeIns',
+        'national_identity_card',
 
 
     ];
@@ -29,7 +30,7 @@ class Allfcodeins extends Model
     protected $allowedFilters = [
         'id',
         'CodeIns',
-
+        'national_identity_card',
     ];
 
     /**
@@ -38,7 +39,7 @@ class Allfcodeins extends Model
     protected $allowedSorts = [
         'id',
         'CodeIns',
-
+        'national_identity_card',
     ];
 
 

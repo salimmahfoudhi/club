@@ -33,7 +33,23 @@
 
                                 <h6 class="f-w-600">{{ $etudiant['name']  }} {{ $etudiant['last_name']  }}</h6>
 
-                                <p>Admin</p> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+
+                                    @foreach($roles as $role)
+                                            @foreach($roleusers as $roleuser)
+                                               @if($roleuser['role_id']==$role['id'])
+                                        <p>   {{$role['name']}}</p>
+
+                                                  @endif
+
+                                    @endforeach
+                                    @endforeach
+
+
+
+
+
+
+                                 <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
 
                             </div>
                         </div>

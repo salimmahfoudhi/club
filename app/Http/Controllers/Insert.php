@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -19,19 +20,23 @@ class Insert extends Controller
 
 
 
-    public function InsertDbuser(Request $request)
+    public function InsertDbuser(UserRequest $request)
     {
 
         //validate date before insert to DB
 
-        $rules=$this->GetRules();
+    /*    $rules=$this->GetRules();
 
         $messages = $this->GetMessages();
 
         $validator=Validator::make($request->all(),$rules,$messages);
 
         if ($validator -> fails())
-        {return redirect()->back()->withErrors($validator)->withInput($request->all());}
+        {
+            return redirect()->back()->withErrors($validator)->withInput($request->all());
+
+
+        }*/
 
 
 

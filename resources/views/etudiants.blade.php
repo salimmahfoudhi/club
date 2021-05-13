@@ -32,7 +32,10 @@
 
                 <a href="/etudiants/{{$etudiant['id']}}" style="color:black;!important;"><h4> {{ $etudiant['last_name']  }} {{ $etudiant['name']  }}</h4></a>
 
-              <span>Admin</span>
+                 <span>
+
+
+                  </span>
 
               <p>
                   {{ $etudiant['disctiption']  }}

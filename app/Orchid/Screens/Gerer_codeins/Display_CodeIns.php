@@ -60,6 +60,8 @@ class Display_CodeIns extends Screen
                 ->type(Color::SECONDARY())
                 ->route('platform.Add_Codeins'),
 
+
+
         ];
     }
 

@@ -35,14 +35,16 @@ class CodeInsListLayout extends Table
 
             TD::make('id', 'Id'),
 
-
+TD::make('national_identity_card','CIN')
+    ->filter(TD::FILTER_TEXT)
+    ->render(function (Allfcodeins $allfcodeins) {
+        return Link::make($allfcodeins->national_identity_card)
+            ->route('platform.Update_And_Remove_Code', $allfcodeins);}),
 
 
             TD::make('CodeIns', 'Code Inscri')
-                ->filter(TD::FILTER_TEXT)
-                 ->render(function (Allfcodeins $allfcodeins) {
-                     return Link::make($allfcodeins->CodeIns)
-                         ->route('platform.Update_And_Remove_Code', $allfcodeins);}),
+             ,
+
 
 
             TD::make(__('Actions'))

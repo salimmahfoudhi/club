@@ -17,7 +17,8 @@ class AllFCodeins extends Migration
             Schema::create('AllFCodeins', function (Blueprint $table) {
                 $table->id()->unique();
 
-                $table->string('CodeIns')->unique();
+                $table->string('CodeIns')->unique()->nullable();
+                $table->string('national_identity_card')->unique()->nullable();
 
             });
 

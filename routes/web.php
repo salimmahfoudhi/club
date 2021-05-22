@@ -25,8 +25,20 @@ Route::get('/clubs', 'App\Http\Controllers\FrontController@ListeClubs');
 Route::get('/evenments', 'App\Http\Controllers\FrontController@ListeEvenements');
 Route::get('/formations', 'App\Http\Controllers\FrontController@ListeFormations');
 Route::get('/', 'App\Http\Controllers\FrontController@Liste3Evenements');
-Route::get('/login', function () {
-    return view('login');});
+//Route::get('/login', function () {
+  //  return view('login');});
+
+// route to show the login form
+Route::get('login', array('uses' => 'App\Http\Controllers\HomeController@showLogin'));
+
+// route to process the form
+Route::post('login', array('uses' => 'App\Http\Controllers\HomeController@doLogin'));
+
+
+
+
+
+
 
 //Route::get('/inscrire', 'App\Http\Controllers\Insert@inscrire');
 Route::POST('/InsertUser', 'App\Http\Controllers\Insert@InsertDbuser')->name('insert.user');

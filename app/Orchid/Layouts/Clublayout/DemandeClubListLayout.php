@@ -12,10 +12,8 @@ use Orchid\Screen\Actions\Link;
 use Orchid\Support\Facades\Alert;
 use Illuminate\Support\Str;
 
-use Illuminate\Support\Facades\Auth;
 
-
-class ClubListLayout extends Table
+class DemandeClubListLayout extends Table
 {
     /**
      * Data source.
@@ -61,8 +59,8 @@ class ClubListLayout extends Table
 
 			TD::make('statut', 'Statut')
                 ->render(function (Club $club) {
-					if($club->statut == 1){$btnactiv="Activer";$iconactic="check";$confirm="Vous vous activer ce club ?";$color="green";}else{$btnactiv="Desactiver";$iconactic="ban";$confirm="Vous vous désactiver ce club ?";$color="red";}
-					return "<p class='$color' >$btnactiv</p>";
+					if($club->type_demande == "ouvrir"){$btnactiv="Demande d'activation ";$color="green";}else{$btnactiv="Demande de désactivation";$color="red";}
+					return "<p class='$color' style='padding:0 10px;'>$btnactiv</p>";
                 }),
 
             TD::make('logo', 'Logo')
@@ -88,38 +86,8 @@ class ClubListLayout extends Table
                 ->width('100px')
                 ->render(function (Club $club) {
 					
-					if($club->statut == 0){$btnactiv="Activer";$iconactic="check";$confirm="Vous vous activer ce club ?";}else{$btnactiv="Desactiver";$iconactic="ban";$confirm="Vous vous désactiver ce club ?";}
-					
-					
-					$roles_user = Auth::user()->inRole(1);
-					if($roles_user){
-					return DropDown::make()
-                        ->icon('options-vertical')
-                        ->list([
-
-                            Link::make(__('Modifier'))
-                                ->route('platform.Update_and_Remove_Club', $club->id)
-                                ->icon('pencil'),
-
-                            Button::make(__('Fermer'))
-                                ->icon('trash')
-                                ->method('demandefermer')
-                                ->confirm(__('Une fois le Club est fermée, toutes ses ressources et données seront définitivement supprimées. '))
-                                ->parameters([
-                                    'id' => $club->id,
-                                ]),
-							Button::make(__($btnactiv))
-                                ->icon($iconactic)
-                                ->method('activ')
-                                ->confirm(__($confirm))
-                                ->parameters([
-                                    'id' => $club->id,
-                                ]),
-                        ]);
-						
-					}else{
-						
-						
+					if($club->statut == 0){$btnactiv="Activer";$iconactic="check";$confirm="Vous vous activer ce club ?";$method="activ";}
+					if($club->type_demande == 'fermer'){$btnactiv="Fermer";$iconactic="ban";$confirm="Vous voulez fermée ce club ?";$method="fermer";}
                     return DropDown::make()
                         ->icon('options-vertical')
                         ->list([
@@ -128,22 +96,25 @@ class ClubListLayout extends Table
                                 ->route('platform.Update_and_Remove_Club', $club->id)
                                 ->icon('pencil'),
 
-                            Button::make(__('Suppimer'))
+                            
+							Button::make(__($btnactiv))
+                                ->icon($iconactic)
+                                ->method($method)
+                                ->confirm(__($confirm))
+                                ->parameters([
+                                    'id' => $club->id,
+                                ]),
+							
+							/* Button::make(__('Suppimer'))
                                 ->icon('trash')
                                 ->method('remove')
                                 ->confirm(__('Une fois le Club supprimer, toutes ses ressources et données seront définitivement supprimées. '))
                                 ->parameters([
                                     'id' => $club->id,
-                                ]),
-							Button::make(__($btnactiv))
-                                ->icon($iconactic)
-                                ->method('activ')
-                                ->confirm(__($confirm))
-                                ->parameters([
-                                    'id' => $club->id,
-                                ]),
+                                ]), */
+								
+								
                         ]);
-					}
                 }),
 
 

@@ -82,14 +82,9 @@
 
 
 
-
-
-    <!-- =======================================================
-    * Template Name: Eterna - v4.1.0
-    * Template URL: https://bootstrapmade.com/eterna-free-multipurpose-bootstrap-template/
-    * Author: BootstrapMade.com
-    * License: https://bootstrapmade.com/license/
-    ======================================================== -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel='stylesheet' href='https://raw.githubusercontent.com/kartik-v/bootstrap-star-rating/master/css/star-rating.min.css'> 
 </head>
 
 <body>

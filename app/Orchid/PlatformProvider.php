@@ -67,16 +67,37 @@ class PlatformProvider extends OrchidServiceProvider
             ItemMenu::label('Clubs')
                 ->slug('Clubs')
                 ->icon('orchid-old')
-                ->permission('platform.Add_club')
+                ->permission('platform.display_club')
 
                 ->withChildren(),
 
 
-            ItemMenu::label(__('Afficher Clubs'))
+            ItemMenu::label(__('Liste des Clubs'))
                 ->place('Clubs')
 
                 ->route('platform.display_club')
                 ->permission('platform.display_club')
+                ->sort(1000),
+				
+			ItemMenu::label(__('Demandes Club'))
+                ->place('Clubs')
+
+                ->route('platform.demande_display_club')
+                ->permission('platform.Add_club')
+                ->sort(1000),
+				
+			ItemMenu::label(__('Membres des clubs'))
+                ->place('Clubs')
+
+                ->route('platform.membre')
+                ->permission('platform.membreclub')
+                ->sort(1000),
+			
+			ItemMenu::label(__('Demande de joindre club'))
+                ->place('Clubs')
+
+                ->route('platform.demandemembre')
+                ->permission('platform.demandemembre')
                 ->sort(1000),
 
 
@@ -208,7 +229,11 @@ class PlatformProvider extends OrchidServiceProvider
            ,
             ItemPermission::group(__('clubs'))
                 ->addPermission('platform.Add_club', 'Ajouter Club')
-                ->addPermission('platform.display_club', 'Afficher Clubs'),
+                ->addPermission('platform.display_club', 'Liste des Clubs')
+				 ->addPermission('platform.demandemembre', 'Demande joindre Club')
+				  ->addPermission('platform.membreclub', 'Membres du Club'),
+				 
+				 
 
             ItemPermission::group(__('Users'))
                 ->addPermission('platform.Add_publication', 'Ajouter Publication')

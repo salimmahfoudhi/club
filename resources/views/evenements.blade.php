@@ -27,23 +27,25 @@
 
 
 
-          <div class="col-lg-8 entries" >
-              @foreach($evenements as $evenement)
+         <div class="col-lg-12 entries" >
+			<div class="row">
+             @foreach($evenements as $evenement)
+			 <div class="col-lg-4 " >
             <article class="entry">
 
               <div class="entry-img">
-                  <img src="{{ $evenement['banner']  }}" alt=""  class="img-fluid">
+                  <img src="{{ $evenement['banner']  }}" alt="" class="img-fluid">
               </div>
 
               <h2 class="entry-title">
-                <a href="blog-single.html">{{ $evenement['name']  }}</a>
+                <a href="/publications/{{ $evenement['id']  }}" class="hidepublication">{{ $evenement['name']  }}</a>
               </h2>
 
               <div class="entry-meta">
                 <ul>
-                  <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">{{ $evenement['name']  }}</a></li>
-                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">{{ $evenement['date_and_time']  }}</time></a></li>
-                  <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">12 Comments</a></li>
+                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="/publications/{{ $evenement['id']  }}" class="hidepublication">{{ $evenement['name']  }}</a></li>
+                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="/publications/{{ $evenement['id']  }}" class="hidepublication"><time datetime="2020-01-01">{{ $evenement['date_and_time']  }}</time></a></li>
+
                 </ul>
               </div>
 
@@ -51,10 +53,10 @@
 
               <div class="entry-content">
                 <p>
-                    {{ $evenement['description']  }}
+					  {!! Str::words($evenement['description'], 20, ' ...') !!}
                 </p>
                 <div class="read-more">
-                  <a href="blog-single.html">Read More</a>
+                  <a href="/publications/{{ $evenement['id']  }}" class="hidepublication">Voir Plus</a>
                 </div>
 
 
@@ -62,12 +64,14 @@
 
 
             </article><!-- End blog entry -->
-
+			</div>
               @endforeach
+			</div>
 
 
-
-
+		</div>
+		</div>
+		</div>
 
 
     </section><!-- End Blog Section -->

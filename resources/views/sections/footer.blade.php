@@ -98,3 +98,19 @@
 
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
+
+<?php if (!Auth::check()) { ?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $(".hidepublication").removeAttr('href');
+	 $('.hidepublication').click(function() {
+		event.preventDefault();
+		var get = "Vous devez se connecter pour avoir plus de détails.";
+		alert(get);   
+	  }); 
+  
+});/* w  ww .  ja  v a 2 s.c o m*/
+</script>
+
+<?php }?>

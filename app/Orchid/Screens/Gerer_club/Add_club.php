@@ -123,7 +123,7 @@ class Add_club extends Screen
                 Cropper::make('Club.logo')
                     ->targetRelativeUrl()
                     ->title('logo du club')
-                    ->width(700)
+                    ->width(600)
                     ->height(600)
                     ->horizontal(),
 

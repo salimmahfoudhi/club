@@ -11,57 +11,12 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login200">
-				<form id="userdata" class="login100-form validate-form" action="/Save" method="POST">
+				<form id="userdata" class="login100-form validate-form" action="/authenticate" method="get">
 
                     @csrf
+				
 
-
-                    <div class="alert alert-success" role="alert" id="succes_msg" style="display: none">
-                        Enregistré avec succès
-                    </div>
-
-
-                    <br>
-
-
-
-                    <small id="national_identity_card_error" class="form-text text-danger"></small>
-                   		<div class="wrap-input100 " >
-                        CIN <input class="input100" type="text" name="national_identity_card" maxlength="8">
-                    </div>
-
-
-                    <small id="f_registration_number_error" class="form-text text-danger"></small>
-
-
-                    <div class="wrap-input100 " >
-
-                        Numéro d'inscription de la faculté
-                        <input class="input100" type="text" name="f_registration_number" maxlength="8">
-                    </div>
-
-                    <small id="name_error" class="form-text text-danger"></small>
-                    <div class="wrap-input100 " >
-                        Nom <input class="input100" type="text" name="name" >
-                        <div class="alert-message" id="nameError"></div>
-                    </div>
-
-
-
-
-
-
-                    <small id="last_name_error" class="form-text text-danger"></small>
-                    <div class="wrap-input100 " >
-                        Prenom <input class="input100" type="text" name="last_name" >
-                    </div>
-
-                    <small id="Date_of_Birth_error" class="form-text text-danger"></small>
-
-                    <div class="wrap-input100 " >
-                        date de naissance <input class="input100" type="date" name="Date_of_Birth" >
-                    </div>
-
+                    
 
                     <small id="email_error" class="form-text text-danger"></small>
 
@@ -85,7 +40,7 @@
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
                            	<button id="save_user"  class="login100-form-btn">
-                                   S'inscrire
+                                   Se connecter
                                </button>
 
 
@@ -118,7 +73,7 @@
 
     <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
    <script>
-    $(document).on('click','#save_user',function (e){
+    $(document).on('click','#save_user0',function (e){
 
     e.preventDefault();
         $('#f_registration_number_error').text('');

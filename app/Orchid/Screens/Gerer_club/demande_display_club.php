@@ -6,7 +6,7 @@ use App\Models\MyModels\Club;
 use App\Models\User;
 use App\Models\Clubetudiant;
 use App\Orchid\Layouts\Clublayout\ClubFiltersLayout;
-use App\Orchid\Layouts\Clublayout\ClubListLayout;
+use App\Orchid\Layouts\Clublayout\DemandeClubListLayout;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
 use Orchid\Support\Color;
@@ -15,21 +15,21 @@ use Orchid\Support\Facades\Alert;
 use Illuminate\Support\Facades\Auth;
 
 
-class display_club extends Screen
+class demande_display_club extends Screen
 {
     /**
      * Display header name.
      *
      * @var string
      */
-    public $name = 'Afficher clubs';
+    public $name = 'Demande création Club';
 
     /**
      * Display header description.
      *
      * @var string|null
      */
-    public $description = 'Tous les clubs enregistrés';
+    public $description = 'Les demandes de création des Club';
 
     /**
      * Query data.
@@ -38,28 +38,22 @@ class display_club extends Screen
      */
     public function query(): array
     {
-		$user = Auth::user();
-		$national_identity_card = $user->national_identity_card;  
-		
-		$roles_user = Auth::user()->inRole(1);
-		if($roles_user){
-			return [
-				'clubs' => Club::where('cin_leader',$national_identity_card)
-					->filters()
-					->filtersApplySelection(ClubFiltersLayout::class)
-					->defaultSort('id', 'desc')
-					->paginate(),
-			];
-		}else{
 			
 			return [
-            'clubs' => Club::where('statut',1)
+            'clubs' => Club::Where('close', 0)
+				->where(function($q) {
+					  $q->where('statut', 0)
+						->orWhere('type_demande', 'fermer');
+				  })
+				
+				
+				
                 ->filters()
                 ->filtersApplySelection(ClubFiltersLayout::class)
                 ->defaultSort('id', 'desc')
                 ->paginate(),
 			];
-		}
+		
     }
 
     /**
@@ -69,11 +63,7 @@ class display_club extends Screen
      */
     public function commandBar(): array
     {
-        return [
-            Link::make('Ajouter')
-                ->icon('plus')
-                ->route('platform.Add_club')
-                ->type(Color::SECONDARY()),
+       return [
         ];
     }
 
@@ -86,7 +76,7 @@ class display_club extends Screen
     {
         return [
           //  ClubFiltersLayout::class,
-            ClubListLayout::class
+            DemandeClubListLayout::class
         ];
     }
 
@@ -106,60 +96,56 @@ class display_club extends Screen
 			$club = Club::firstOrNew(['id' => $club->id]);
 			if($club->statut == 0){
 				$club->statut = 1;
-				
-				$user = User::firstOrNew(['national_identity_card' => $club->cin_leader]);
-				$permissions ='{}';
-
-				$user->permissions = $permissions; 
-				$user->save();
-				$user->roles()->attach(1);	
-				
-				$clubetudiant = Clubetudiant::firstOrNew(['id_etudiant' => $user->id]);
-				$clubetudiant->id_etudiant = $user->id;
-				$clubetudiant->id_club = $club->id;
-				$clubetudiant->etat = 1;
-				
-				$clubetudiant->save();
-	
 			}else{
 				$club->statut = 0;
-				
-				$user = User::firstOrNew(['national_identity_card' => $club->cin_leader]);
-				$permissions =Null;
-
-				$user->permissions = $permissions; 
-				$user->save();
-				$user->roles()-> detach();	
-				
 			}
             
             $club->save();
+			
+			
+			
+	$user = User::firstOrNew(['national_identity_card' => $club->cin_leader]);
+	$permissions ='{}';
 
-        Alert::info('Vous avez supprimé le club avec succès.');
+	$user->permissions = $permissions; 
+		$user->save();
+	$user->roles()->attach(1);		
+	
+	
+		$clubetudiant = Clubetudiant::firstOrNew(['id_etudiant' => $user->id]);
+		$clubetudiant->id_etudiant = $user->id;
+		$clubetudiant->id_club = $club->id;
+		$clubetudiant->etat = 1;
+		
+		$clubetudiant->save();
+		
 
-        return redirect()->route('platform.display_club');
+        Alert::info('Vous avez activé le club avec succès.');
+
+        return redirect()->route('platform.demande_display_club');
     }
 
 
-public function demandefermer(Club $club)
+	
+	public function fermer(Club $club)
     {
         //$club->delete();
 		
 			$club = Club::firstOrNew(['id' => $club->id]);
 			$club->type_demande	 = "fermer";
+			$club->statut = 0;
+			$club->close = 1;
 			$club->save();
 			
+			$user = User::firstOrNew(['national_identity_card' => $club->cin_leader]);
+			$user->roles()->detach();
 			
-            
 
-        Alert::info('Vous avez demandé de fermer le club avec succès.');
+        Alert::info('Vous avez fermé le club avec succès.');
 
-        return redirect()->route('platform.display_club');
+        return redirect()->route('platform.demande_display_club');
     }
 	
-
-	
-
 
     public $permission = [
         'platform.display_club'

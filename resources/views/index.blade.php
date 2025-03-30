@@ -65,37 +65,51 @@
     <section id="featured" class="featured">
         <div class="container ">
             <div class="row"  >
-                <div class="col-lg-6">
-        @foreach($evenements as $evenement)
+				<div class="col-lg-12 entries">
+				<div class="row"  >
+				<div class="section-title">
+					  <h2>Evenements</h2>
+					  <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+				  </div>
+				@foreach($evenements as $evenement)
+                <div class="col-lg-4">
+        
                         <div class="container ">
-                        <div class="row icon-box"  >
-                            <div class="col-lg-4">
-                                <i class=""><a href="profil"><img src="{{ $evenement['banner']  }}" class="img-fluid imgpublication" alt=""></a></i>
-                            </div>
-                            <div class="col-lg-8">
-                                <h3><a href="profil">{{ $evenement['name']  }}<br> {{ $evenement['date_and_time']  }}</a></h3>
-                                <p>{{ $evenement['description']  }}</p>
+                        <div class="row icon-box"  > 
+                            <div class="col-lg-12">
+							<p><i class=""><a class="hidepublication" href="/publications/{{ $evenement['id']  }}"><img src="{{ $evenement['banner']  }}" class="img-fluid imgpublication" alt=""></a></i></p>
+                                <h3><a class="hidepublication" href="/publications/{{ $evenement['id']  }}">{{ $evenement['name']  }}<br> {{ $evenement['date_and_time']  }}</a></h3>
+                                <p>{!! Str::words($evenement['description'], 20, ' ...') !!}</p>
                             </div>
                         </div>
                         </div>
-        @endforeach
                 </div>
-                <div class="col-lg-6">
-                    @foreach($formations as $formation)
+				@endforeach
+				</div>
+				</div>
+				
+				<div class="col-lg-12 entries">
+				<div class="row"  >
+				<div class="section-title">
+					  <h2>Formations</h2>
+					  <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+				  </div>
+				@foreach($formations as $formation)
+                <div class="col-lg-4">
+                    
                         <div class="container ">
-                            <div class="row icon-box"  >
-                                <div class="col-lg-4">
-                                    <i class=""><a href="profil"><img src="{{ $formation['banner']  }}" class="img-fluid imgpublication" alt=""></a></i>
-                                </div>
-                                <div class="col-lg-8">
-                                    <h3><a href="profil">{{ $formation['name']  }}<br> {{ $formation['date_and_time']  }}</a></h3>
-                                    <p>{{ $formation['description']  }}</p>
+                            <div class="row icon-box"  > 
+                                <div class="col-lg-12">
+									<p> <i class=""><a class="hidepublication" href="/publications/{{ $formation['id']  }}"><img src="{{ $formation['banner']  }}" class="img-fluid imgpublication" alt=""></a></i></p>
+                                    <h3><a class="hidepublication" href="/publications/{{ $formation['id']  }}">{{ $formation['name']  }}<br> {{ $formation['date_and_time']  }}</a></h3>
+                                    <p>{!! Str::words($formation['description'], 20, ' ...') !!} </p>
                                 </div>
                             </div>
                         </div>
-
-                    @endforeach
                 </div>
+				@endforeach
+				</div>
+				</div>
             </div>
         </div>
 
@@ -107,7 +121,7 @@
           <div class="container">
 
               <div class="section-title">
-                  <h2>Clients</h2>
+                  <h2>Les Clubs</h2>
                   <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
               </div>
 

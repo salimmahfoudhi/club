@@ -16,9 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/welcome', function () {
     return view('welcome');
 });
-Route::get('/', function () {
-    return view('index');
-});
+
+
+//Route::get('/', 'App\Http\Controllers\FrontController@Index0');
 
 Route::get('/etudiants', 'App\Http\Controllers\FrontController@ListeEtudiants');
 Route::get('/clubs', 'App\Http\Controllers\FrontController@ListeClubs');
@@ -29,15 +29,14 @@ Route::get('/', 'App\Http\Controllers\FrontController@Liste3Evenements');
   //  return view('login');});
 
 // route to show the login form
-Route::get('login', array('uses' => 'App\Http\Controllers\HomeController@showLogin'));
+
 
 // route to process the form
-Route::post('login', array('uses' => 'App\Http\Controllers\HomeController@doLogin'));
+Route::get('login', array('uses' => 'App\Http\Controllers\FrontController@showLogin'));
+Route::get('authenticate', array('uses' => 'App\Http\Controllers\FrontController@authenticate'));
 
 
-
-
-
+Route::get('logout', array('uses' => 'App\Http\Controllers\FrontController@logout'));
 
 
 //Route::get('/inscrire', 'App\Http\Controllers\Insert@inscrire');
@@ -47,12 +46,31 @@ Route::POST('/InsertUser', 'App\Http\Controllers\Insert@InsertDbuser')->name('in
 });*/
 Route::post('/code-register', 'App\Http\Controllers\FrontController@VerificationCodeRegister')->name('VerificationCodeRegister');
 
-Route::get('/etudiants/{id}', 'App\Http\Controllers\Selecte@Etudiant');
-Route::get('/clubs/{id}', 'App\Http\Controllers\Selecte@club');
+Route::get('/etudiants/{id}', 'App\Http\Controllers\FrontController@Etudiant');
+Route::get('/clubs/{id}', 'App\Http\Controllers\FrontController@club');
+Route::get('/joindreclub/{id_club}', 'App\Http\Controllers\FrontController@joindreClub')->name('joindreclub');
+Route::get('/ChargerCommentairesClub/{id}', 'App\Http\Controllers\FrontController@ChargerCommentairesClub');
 
+Route::get('/publications/{id}', 'App\Http\Controllers\FrontController@showpublication');
+Route::get('/participPublic/{id}', 'App\Http\Controllers\FrontController@participPublic');
+Route::get('/saveRating', 'App\Http\Controllers\FrontController@saveRating')->name('saveRating');
+
+Route::post('/clubcommentaires', 'App\Http\Controllers\FrontController@clubCommentaires')->name('clubCommentaires');
+
+//Route::get('/inscrire', 'App\Http\Controllers\FrontController@CreateUser');
+//Route::post('/Save', 'App\Http\Controllers\FrontController@registerUser')->name('ajax.SaveUser');
 
 Route::get('/inscrire', 'App\Http\Controllers\AddUserController@CreateUser');
-Route::Post('/Save', 'App\Http\Controllers\AddUserController@Save')->name('ajax.SaveUser');
+Route::post('/Save', 'App\Http\Controllers\AddUserController@Save')->name('ajax.SaveUser');
+
+Route::get('/monprofil', 'App\Http\Controllers\FrontController@monprofil');
+Route::post('/upateProfile', 'App\Http\Controllers\FrontController@upateProfile')->name('upateProfile');
+
+Route::get('/cv', 'App\Http\Controllers\FrontController@formcv');
+Route::post('/saveCv', 'App\Http\Controllers\FrontController@saveCv')->name('saveCv');
+
+Route::get('/creationclub', 'App\Http\Controllers\FrontController@creationclub');
+Route::post('/savecreationclub', 'App\Http\Controllers\FrontController@savecreationclub')->name('savecreationclub');
 
 ######### salim test #########
 

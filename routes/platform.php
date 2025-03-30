@@ -15,6 +15,10 @@ use App\Orchid\Screens\Role\RoleListScreen;
 use App\Orchid\Screens\User\UserEditScreen;
 use App\Orchid\Screens\User\UserListScreen;
 use App\Orchid\Screens\User\UserProfileScreen;
+
+use App\Orchid\Screens\Gerer_Membre\Membre;
+use App\Orchid\Screens\Gerer_Membre\DemandeMembre;
+
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
 
@@ -108,6 +112,7 @@ Route::screen('UpdateUser/{displayuser?}',\App\Orchid\Screens\Gerer_User\UpdateU
 
 Route::screen('Addclub',\App\Orchid\Screens\Gerer_club\Add_club::class)->name('platform.Add_club');
 Route::screen('displayclub',\App\Orchid\Screens\Gerer_club\display_club::class)->name('platform.display_club');
+Route::screen('demande_display_club',\App\Orchid\Screens\Gerer_club\demande_display_club::class)->name('platform.demande_display_club');
 
 Route::screen('Add_publication',\App\Orchid\Screens\Gerer_Publication\Add_publication::class)->name('platform.Add_publication');
 Route::screen('Display_publication',\App\Orchid\Screens\Gerer_Publication\Display_publication::class)->name('platform.Display_publication');
@@ -132,6 +137,10 @@ Route::screen('RemoveUpdateClub/{displayclub?}',\App\Orchid\Screens\Gerer_club\U
 Route::screen('RemoveUpdatePub/{Display_publication?}',\App\Orchid\Screens\Gerer_Publication\Update_And_Remove_Pub::class)
     ->name('platform.Update_And_Remove_Pub');
 
+
+
+Route::screen('/membre', Membre::class)->name('platform.membre');
+Route::screen('/demandemembre', DemandeMembre::class)->name('platform.demandemembre');
 
 
 //Route::screen('update_etu/{displayuser?}',\App\Orchid\Screens\update_etu::class)

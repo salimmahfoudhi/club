@@ -7,6 +7,7 @@ use App\Http\Requests\UserRequest;
 use App\Models\MyModels\Allfcodeins;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -17,19 +18,13 @@ class AddUserController extends Controller
     public function CreateUser()
     {
 
-
-        return view('createuser');
+        $userdata="tt";
+        $test = "test";
+        return view('createuser',compact('userdata','test'));
     }
 
     public function Save(UserRequest $request)
     {
-
-
-
-
-
-
-
 
         //insert to db
         $user = User::create([
@@ -47,7 +42,16 @@ class AddUserController extends Controller
 
         ]);
 
+        Auth::loginUsingId($user->id);
+        $this->user = $user;
+
+
+
+
         if ($user) {
+
+
+
             return response()->json([
                 'status' => true,
 

@@ -13,6 +13,8 @@ use Orchid\Screen\Screen;
 use Orchid\Support\Color;
 use Orchid\Support\Facades\Alert;
 
+use Illuminate\Support\Facades\Auth;
+
 class Display_publication extends Screen
 {
     /**
@@ -36,16 +38,31 @@ class Display_publication extends Screen
      */
     public function query(): array
     {
-        return [
+		
+		$user = Auth::user();
+		$national_identity_card = $user->national_identity_card;  
+		
+		$roles_user = Auth::user()->inRole(1);
+		
+		if($roles_user){
+			return [
+			'publications' => Publication::where('cin_publisher',$national_identity_card)
+			->filters()
+			->filtersApplySelection(PubFiltersLayout::class)
+			->defaultSort('id', 'desc')
+			->paginate(),
 
+			];
+		}else{
+			 return [
+			'publications' => Publication:://with('roles')
+			 filters()
+			->filtersApplySelection(PubFiltersLayout::class)
+			->defaultSort('id', 'desc')
+			->paginate(),
 
-            'publications' => Publication:://with('roles')
-         filters()
-        ->filtersApplySelection(PubFiltersLayout::class)
-        ->defaultSort('id', 'desc')
-        ->paginate(),
-
-        ];
+			];
+		}
     }
 
     /**

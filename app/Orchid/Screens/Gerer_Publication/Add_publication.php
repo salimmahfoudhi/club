@@ -21,6 +21,9 @@ use Orchid\Support\Facades\Alert;
 
 use Orchid\Screen\Fields\Cropper;
 use Orchid\Screen\Fields\TextArea;
+use Orchid\Screen\Fields\DateTimer;
+
+use Illuminate\Support\Facades\Auth;
 
 class Add_publication extends Screen
 {
@@ -76,21 +79,40 @@ class Add_publication extends Screen
      */
     public function layout(): array
     {
+		$user = Auth::user();
+		$national_identity_card = $user->national_identity_card;
+		$clubs = Club::where("cin_leader",$national_identity_card)->first();
+		
+		$roles_user = Auth::user()->inRole(1);
+		if($roles_user){
+			$id_club = $clubs->id;
+		}else{
+			$id_club = 0;
+		}
         return [
             Layout::rows([
 
 
 
 
-                Relation::make('Publication.cin_publisher')
+                /* Relation::make('Publication.cin_publisher')
                     ->title('CIN //automatic ?')
                     ->required()
                     ->type('Integer')
                     ->placeholder('CIN Publisher')
                     ->fromModel(User::class, 'national_identity_card')
+                    ->horizontal(), */
+
+				Input::make('Publication.cin_publisher')
+                    ->type('hidden')
+                    ->value($national_identity_card)
                     ->horizontal(),
-
-
+					
+				Input::make('Publication.idclub')
+                    ->type('hidden')
+                    ->value($id_club)
+                    ->horizontal(),
+					
 
                 Select::make('Publication.type')
                     ->required()
@@ -119,11 +141,11 @@ class Add_publication extends Screen
 
 
 
-                Input::make('Publication.date_and_time')
-                    ->type('datetime-local')
+                DateTimer::make('Publication.date_and_time')
+					->required()
                     ->title('Date et l\'heure')
-
-                    ->horizontal(),
+					 ->enableTime()
+					  ->horizontal(),
 
 
                 Cropper::make('Publication.banner')

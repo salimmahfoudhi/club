@@ -27,8 +27,10 @@
 
 
 
-          <div class="col-lg-8 entries" >
+          <div class="col-lg-12 entries" >
+			<div class="row">
               @foreach($formations as $formation)
+			<div class="col-lg-4" >
             <article class="entry">
 
               <div class="entry-img">
@@ -36,14 +38,14 @@
               </div>
 
               <h2 class="entry-title">
-                <a href="blog-single.html">{{ $formation['name']  }}</a>
+                <a href="/publications/{{ $formation['id']  }}" class="hidepublication">{{ $formation['name']  }}</a>
               </h2>
 
               <div class="entry-meta">
                 <ul>
-                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">{{ $formation['name']  }}</a></li>
-                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">{{ $formation['date_and_time']  }}</time></a></li>
-                    <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">12 Comments</a></li>
+                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a class="hidepublication" href="/publications/{{ $formation['id']  }}">{{ $formation['name']  }}</a></li>
+                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a class="hidepublication" href="/publications/{{ $formation['id']  }}"><time datetime="2020-01-01">{{ $formation['date_and_time']  }}</time></a></li>
+
                 </ul>
               </div>
 
@@ -51,10 +53,10 @@
 
               <div class="entry-content">
                 <p>
-                    {{ $formation['description']  }}
+                    {!! Str::words($formation['description'], 20, ' ...') !!}
                 </p>
                 <div class="read-more">
-                  <a href="blog-single.html">Read More</a>
+                  <a href="/publications/{{ $formation['id']  }}" class="hidepublication">Voir Plus</a>
                 </div>
 
 
@@ -62,11 +64,12 @@
 
 
             </article><!-- End blog entry -->
-
+			</div>
               @endforeach
-
-
-
+			  </div>
+		</div>
+	</div>
+</div>
 
 
 

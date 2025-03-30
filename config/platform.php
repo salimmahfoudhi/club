@@ -93,7 +93,7 @@ return [
     */
 
     'resource' => [
-        'stylesheets' => [],
+        'stylesheets' => ['/css/main.css'],
         'scripts'     => [],
     ],
 
